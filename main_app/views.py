@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Requirements
@@ -34,8 +34,8 @@ def home(request):
     return render(request, 'home.html')
 
 
-def profile_create(request):
-    return ##Path to profile create page
+def profile(request, user_id):
+    return render(request, 'accounts/profile.html', {'user_id' : user_id})
   
 def about(request):
     return render(request, 'about.html')
@@ -54,26 +54,31 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('profile_create')
+            return redirect('index')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
-    return render(request, 'registration/signup.html/', context)
+    return render(request, 'registration/signup.html', context)
 
-class ProfileCreate(CreateView):
-    model = Profile
-    fields = ['phone', 'city', 'zipcode']
+# class ProfileCreate(CreateView):
+#     model = Profile
+#     fields = ['phone', 'city', 'zipcode']
 
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
     return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
+    # requirements_form = 
+    # Filter will go here
+    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 
+    # 'requirements_form': requirements_form
+    })
 
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-    success_url = '/profile/'
+    # def form_valid(self, form):
+    #     form.instance.user = self.request.user
+    #     return super().form_valid(form)
+    # success_url = '/profile/'
 
 
 class ProfileUpdate(UpdateView):

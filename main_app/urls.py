@@ -26,4 +26,5 @@ urlpatterns = [
     path('requirements/<int:pk>/update/', views.RequirementsUpdate.as_view(), name='requirements_update'),
     path('requirements/<int:pk>/delete/', views.RequirementsDelete.as_view(), name='requirements_delete'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('accounts/profile', views.profile, name='profile'),
 ]
