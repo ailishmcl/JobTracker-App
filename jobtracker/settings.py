@@ -80,8 +80,8 @@ WSGI_APPLICATION = 'jobtracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
+        'USER': 'postgres',
+        'PASSWORD': 'Bedros.2004',
     }
 }
 
