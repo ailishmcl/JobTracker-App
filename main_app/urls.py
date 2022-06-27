@@ -1,6 +1,7 @@
 # import path
 from django.db import models
 from django.urls import URLPattern, path
+from django.contrib.auth import views as auth_views
 
 
 
@@ -27,4 +28,13 @@ urlpatterns = [
     path('requirements/<int:pk>/delete/', views.RequirementsDelete.as_view(), name='requirements_delete'),
     path('accounts/signup/', views.signup, name='signup'),
     path('accounts/profile/', views.profile, name='profile'),
+
+# password change
+    path('accounts/password_change/', auth_views.PasswordChangeView.as_view(), name='password_change'),
+    path('accounts/password_change_done/', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
+
+# M/M
+    path('jobs/<int:job_id>/assoc_requirement/<int:requirement_id>/', views.assoc_requirement, name='assoc_requirement'),
+    path('jobs/<int:job_id>/unassoc_requirement/<int:requirement_id>/', views.unassoc_requirement, name='unassoc_requirement'),
+
 ]

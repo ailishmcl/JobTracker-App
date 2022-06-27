@@ -10,17 +10,18 @@ from django.contrib.auth.models import User
 class Requirements(models.Model):
     type = models.CharField(max_length=100)
     description = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.type
     
+    def get_absolute_url(self):
+        return reverse('requirements_detail', kwargs = {'pk' : self.id})
 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    def get_absolute_url(self):
-        return reverse('requirements_detail', kwargs = {'pk' : self.id})
 
 
 class Job(models.Model):
