@@ -10,21 +10,32 @@
     <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
 </head>
 <header>
-        <nav class="navbar-fixed">
-            <div class="navbar purple darken-4">
+       <nav class="navbar-fixed" style="background: #7636FA !important">
+            <div>
                 <ul>
-                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; Job Tracker </a></li>
+                    <li> <a href="{% url 'home' %}" class="left brand-logo" style="color: yellow; margin-left: 5%; font-family: 'Oleo Script Swash Caps', cursive; font-size: 300%"> &nbsp; Job Tracker </a></li>
                 </ul>
 
-                <ul class="right">
-                    <li> <a href="about.html" style="font-size: 16px"> About </a></li>
-                    <li> <a href="{% url 'signup' %}" style="font-size: 16px"> Sign Up </a></li>
+                <b> <ul class="right">
+                    <li> <a href="{% url 'signup' %}" style="font-size: 150%!important; color: yellow !important;"> Sign Up </a></li>
+                    <li><a href="{% url 'login' %}" style="font-size: 150% !important; color: yellow !important;">Log In</a></li>
+                    {% if user.is_authenticated %}
+                    <li> <a href="{% url 'about' %}" style="font-size: 150% !important; color: yellow !important;"> About </a></li>
+                    <li> <a href="{% url 'profile' %}" style="font-size: 150% !important; color: yellow !important;"> Profile </a></li>
+                    <li> <a href="{% url 'jobs_create' %}" style="font-size: 150% !important; color: yellow !important;"> Add Job </a></li>
+                    <li> <a href="{% url 'requirements_create' %}" style="font-size: 150% !important; color: yellow !important;"> Add Requirement </a></li>
+                    <li> <a href="{% url 'logout' %}" style="font-size: 150% !important; color: yellow !important;"> Log Out </a></li>
                 </ul>
+                    {% endif %}
             </div>
         </nav>
 </header>
+</b>
 <body>
     
 
@@ -41,8 +52,8 @@
 
     
 
-    <footer class="page-footer custom-footer">
-        <div class="center">
+    <footer class="page-footer custom-footer" style="padding-bottom:20px; background: #7636FA !important">
+        <div class="center" style="color: yellow !important;; font-size: 20px;">
             All Rights Reserved &copy; Job Tracker &nbsp;
         </div>
     </footer>

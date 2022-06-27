@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Profile
 from .models import Job, Requirements
+import os
 from .forms import RequirementsForm
 # Create your views here.
 
@@ -50,11 +51,11 @@ class JobDelete(DeleteView):
 
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
+    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
 
     requirements_form = RequirementsForm
     # requirements_to_get_job = Requirements.objects.filter(user = request.user).exclude(id__in = job.requirements.all().values_list('id'))
     return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
-
     # requirements_form = 
     # Filter will go here
     return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 
