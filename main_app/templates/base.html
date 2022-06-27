@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,12 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Tracker App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
-    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
+<header>
+        <nav class="navbar-fixed">
+            <div class="navbar purple darken-4">
+                <ul>
+                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; Job Tracker </a></li>
+                </ul>
+
+                <ul class="right">
+                    <li> <a href="about.html" style="font-size: 16px"> About </a></li>
+                    <li> <a href="{% url 'signup' %}" style="font-size: 16px"> Sign Up </a></li>
+                </ul>
+            </div>
+        </nav>
+</header>
 <body>
     
 

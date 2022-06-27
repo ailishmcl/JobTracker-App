@@ -14,6 +14,11 @@ class Requirements(models.Model):
     def __str__(self):
         return self.type
     
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
     def get_absolute_url(self):
         return reverse('requirements_detail', kwargs = {'pk' : self.id})
 
@@ -39,4 +44,3 @@ class Job(models.Model):
 
 
 
-    

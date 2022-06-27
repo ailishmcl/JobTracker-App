@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from .models import Requirements
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Profile
 from .models import Job, Requirements
 from .forms import RequirementsForm
 # Create your views here.
@@ -28,6 +34,10 @@ class JobDelete(DeleteView):
 def home(request):
     return render(request, 'home.html')
 
+
+def profile_create(request):
+    return ##Path to profile create page
+  
 def about(request):
     return render(request, 'about.html')
 
@@ -38,6 +48,23 @@ def jobs_index(request):
     # Filter will go here
     return render(request, 'jobs/index.html')
 
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('profile_create')
+        else:
+            error_message = 'Invalid sign up - try again'
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html/', context)
+
+class ProfileCreate(CreateView):
+    model = Profile
+    fields = ['phone', 'city', 'zipcode']
 
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
@@ -54,6 +81,17 @@ def add_requirement(request, job_id):
         new_requirement.save()
         return redirect('detail', job_id = job_id)
 
+
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['phone', 'city', 'zipcode']
+    success_url = '/profile/'
+
+
+class UserUpdate(UpdateView):
+    model = User
+    fields = ['first_name', 'last_name', 'email']
+    success_url = '/profile/'
 
 class RequirementsList(ListView):
     model = Requirements

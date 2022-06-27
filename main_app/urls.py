@@ -25,5 +25,5 @@ urlpatterns = [
     path('requirements/create', views.RequirementsCreate.as_view(), name='requirements_create'),
     path('requirements/<int:pk>/update/', views.RequirementsUpdate.as_view(), name='requirements_update'),
     path('requirements/<int:pk>/delete/', views.RequirementsDelete.as_view(), name='requirements_delete'),
-
+    path('accounts/signup/', views.signup, name='signup'),
 ]
