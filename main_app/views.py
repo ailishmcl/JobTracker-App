@@ -62,7 +62,7 @@ def jobs_detail(request, job_id):
     # 'requirements_form': requirements_form
     })
 
-    
+
 # Requirements URLs
 
 def add_requirement(request, job_id):
@@ -124,7 +124,6 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
-
 
 
 # class ProfileUpdate(UpdateView):

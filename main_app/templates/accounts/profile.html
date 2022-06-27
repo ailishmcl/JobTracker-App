@@ -4,7 +4,8 @@
 
     <h1> Profile Page </h1>
 
-    
+    <div> {{ user.username }}  </div>  
+    <a href="{% url 'password_change' %}"> Change Password </a>
 
 
 {% endblock %}
