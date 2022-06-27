@@ -16,8 +16,8 @@ class Requirements(models.Model):
     
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('requirements_detail', kwargs = {'pk' : self.id})
