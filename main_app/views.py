@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Job, Requirements
+from .forms import RequirementsForm
 # Create your views here.
 
 class JobCreate(CreateView):
@@ -40,11 +41,18 @@ def jobs_index(request):
 
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
-    requirements_form = 
-    # Filter will go here
+    requirements_form = RequirementsForm
+    # requirements_to_get_job = Requirements.objects.filter(user = request.user).exclude(id__in = job.requirements.all().values_list('id'))
     return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
 
+def add_requirement(request, job_id):
+    form = RequirementsForm(request.POST)
 
+    if form.is_valid():
+        new_requirement = form.save(commit=False)
+        new_requirement.job_id = job_id
+        new_requirement.save()
+        return redirect('detail', job_id = job_id)
 
 
 class RequirementsList(ListView):
@@ -64,3 +72,7 @@ class RequirementsUpdate(UpdateView):
 class RequirementsDelete(DeleteView):
     model = Requirements
     success_url = '/requirements/'
+
+def requirements_index(request):
+    requirements_list = Requirements.objects.filter(user = request.user)
+    return render(request, 'main_app/requirement_list.html', {'requirements_list': requirements_list})

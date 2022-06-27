@@ -15,7 +15,7 @@ urlpatterns = [
     path('jobs/create/', views.JobCreate.as_view(), name='jobs_create'),
     path('jobs/<int:pk>/update/', views.JobUpdate.as_view(), name='jobs_update'),
     path('jobs/<int:pk>/delete/', views.JobDelete.as_view(), name='jobs_delete'),
-
+    path('jobs/<int:job_id>/add_requirement/', views.add_requirement, name='add_requirement'),
 
 
 
