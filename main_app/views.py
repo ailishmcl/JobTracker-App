@@ -9,7 +9,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Profile
 from .models import Job, Requirements
 from .forms import RequirementsForm
-import os
 # Create your views here.
 
 
@@ -23,9 +22,9 @@ def about(request):
 
 # Job URL
 def jobs_index(request):
-    # jobs = Job.objects.filter(user = request.user)
+    jobs = Job.objects.filter(user = request.user)
     # Filter will go here
-    return render(request, 'jobs/index.html')
+    return render(request, 'jobs/index.html', {'jobs': jobs})
 
 class JobCreate(CreateView):
     model = Job
@@ -49,8 +48,8 @@ class JobDelete(DeleteView):
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
     requirements_form = RequirementsForm
-    # requirements_to_get_job = Requirements.objects.filter(user = request.user).exclude(id__in = job.requirements.all().values_list('id'))
-    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
+    requirements_to_get_job = Requirements.objects.filter(user = request.user).exclude(id__in = job.requirements.all().values_list('id'))
+    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form, 'requirements': requirements_to_get_job})
 
 
     
@@ -108,6 +107,7 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
 
 # class ProfileCreate(CreateView):
 #     model = Profile
