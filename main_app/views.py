@@ -11,6 +11,21 @@ from .models import Job, Requirements
 from .forms import RequirementsForm
 # Create your views here.
 
+
+# home URL
+def home(request):
+    return render(request, 'home.html')
+
+# about URL
+def about(request):
+    return render(request, 'about.html')
+
+# Job URL
+def jobs_index(request):
+    # jobs = Job.objects.filter(user = request.user)
+    # Filter will go here
+    return render(request, 'jobs/index.html')
+
 class JobCreate(CreateView):
     model = Job
     fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
@@ -29,39 +44,6 @@ class JobDelete(DeleteView):
     model = Job
     success_url = '/jobs/'
 
-
-# home URL
-def home(request):
-    return render(request, 'home.html')
-
-
-def profile(request, user_id):
-    return render(request, 'accounts/profile.html', {'user_id' : user_id})
-  
-def about(request):
-    return render(request, 'about.html')
-
-
-# Job URL
-def jobs_index(request):
-    # jobs = Job.objects.filter(user = request.user)
-    # Filter will go here
-    return render(request, 'jobs/index.html')
-
-def signup(request):
-    error_message = ''
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('index')
-        else:
-            error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
-    context = {'form': form, 'error_message': error_message}
-    return render(request, 'registration/signup.html', context)
-
 # class ProfileCreate(CreateView):
 #     model = Profile
 #     fields = ['phone', 'city', 'zipcode']
@@ -79,6 +61,8 @@ def jobs_detail(request, job_id):
     # 'requirements_form': requirements_form
     })
 
+    
+# Requirements URLs
 
 def add_requirement(request, job_id):
     form = RequirementsForm(request.POST)
@@ -96,17 +80,6 @@ def add_requirement(request, job_id):
     # success_url = '/profile/'
 
 
-
-class ProfileUpdate(UpdateView):
-    model = Profile
-    fields = ['phone', 'city', 'zipcode']
-    success_url = '/profile/'
-
-
-class UserUpdate(UpdateView):
-    model = User
-    fields = ['first_name', 'last_name', 'email']
-    success_url = '/profile/'
 
 class RequirementsList(ListView):
     model = Requirements
@@ -129,3 +102,37 @@ class RequirementsDelete(DeleteView):
 def requirements_index(request):
     requirements_list = Requirements.objects.filter(user = request.user)
     return render(request, 'main_app/requirement_list.html', {'requirements_list': requirements_list})
+
+
+# User and profile views
+
+def profile(request):
+    return render(request, 'accounts/profile.html')
+  
+
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+        else:
+            error_message = 'Invalid sign up - try again'
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html', context)
+
+
+
+# class ProfileUpdate(UpdateView):
+#     model = Profile
+#     fields = ['phone', 'city', 'zipcode']
+#     success_url = '/profile/'
+
+
+# class UserUpdate(UpdateView):
+#     model = User
+#     fields = ['first_name', 'last_name', 'email']
+#     success_url = '/profile/'
