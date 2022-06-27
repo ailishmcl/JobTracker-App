@@ -2,6 +2,15 @@
 
 {% block content%}
 
+    <h1> Requirements List </h1>
+    {% for requirement in requirements_list %}
 
+        <a href="{% url 'requirements_detail' requirement.id %}"> 
+            <div> {{ requirement.type }} </div>
+            <div> {{ requirement.description }} </div>
+        </a>
+  
+
+    {% endfor %}
 
 {% endblock %}
