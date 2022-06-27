@@ -5,6 +5,19 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+
+class Requirements(models.Model):
+    type = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.type
+    
+    def get_absolute_url(self):
+        return reverse('requirements_detail', kwargs = {'pk' : self.id})
+
+
 class Job(models.Model):
     title = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
@@ -24,11 +37,4 @@ class Job(models.Model):
 
         
 
-
-class Requirements(models.Model):
-    type = models.CharField(max_length=100)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.type
     
