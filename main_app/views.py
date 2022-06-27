@@ -40,9 +40,11 @@ def jobs_index(request):
 
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
-    requirements_form = 
+    # requirements_form = 
     # Filter will go here
-    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
+    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 
+    # 'requirements_form': requirements_form
+    })
 
 
 
