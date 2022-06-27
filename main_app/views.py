@@ -9,7 +9,7 @@ class JobCreate(CreateView):
     fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        # form.instance.user = self.request.user
         return super().form_valid(form)
     
 
@@ -27,8 +27,22 @@ class JobDelete(DeleteView):
 def home(request):
     return render(request, 'home.html')
 
+def about(request):
+    return render(request, 'about.html')
 
 
+# Job URL
+def jobs_index(request):
+    # jobs = Job.objects.filter(user = request.user)
+    # Filter will go here
+    return render(request, 'jobs/index.html')
+
+
+def jobs_detail(request, job_id):
+    job = Job.objects.get(id=job_id)
+    requirements_form = 
+    # Filter will go here
+    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
 
 
 

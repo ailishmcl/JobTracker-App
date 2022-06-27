@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import URLPattern, path
 
 
+
 # from main_app directory import views
 from . import views
 
@@ -15,7 +16,7 @@ urlpatterns = [
     path('jobs/<int:pk>/update/', views.JobUpdate.as_view(), name='jobs_update'),
     path('jobs/<int:pk>/delete/', views.JobDelete.as_view(), name='jobs_delete'),
 
-    # Requirements Model
+
 
 
 # requirements urls

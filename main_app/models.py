@@ -27,7 +27,7 @@ class Job(models.Model):
     description = models.TextField(max_length=250)
     contact = models.CharField(max_length=150)
     requirements = models.ManyToManyField(Requirements)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('detail', kwargs = {'job_id': self.id})
@@ -36,5 +36,7 @@ class Job(models.Model):
         return self.title
 
         
+
+
 
     
