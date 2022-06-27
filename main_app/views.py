@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Profile
 from .models import Job, Requirements
+from .forms import RequirementsForm
 # Create your views here.
 
 class JobCreate(CreateView):
@@ -67,6 +68,11 @@ def signup(request):
 
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
+
+    requirements_form = RequirementsForm
+    # requirements_to_get_job = Requirements.objects.filter(user = request.user).exclude(id__in = job.requirements.all().values_list('id'))
+    return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 'requirements_form': requirements_form})
+
     # requirements_form = 
     # Filter will go here
     return render(request, 'jobs/details.html', {'job': job, 'title': "Jobs Details Page", 
@@ -74,10 +80,21 @@ def jobs_detail(request, job_id):
     })
 
 
+def add_requirement(request, job_id):
+    form = RequirementsForm(request.POST)
+
+
+    if form.is_valid():
+        new_requirement = form.save(commit=False)
+        new_requirement.job_id = job_id
+        new_requirement.save()
+        return redirect('detail', job_id = job_id)
+
     # def form_valid(self, form):
     #     form.instance.user = self.request.user
     #     return super().form_valid(form)
     # success_url = '/profile/'
+
 
 
 class ProfileUpdate(UpdateView):
@@ -108,3 +125,7 @@ class RequirementsUpdate(UpdateView):
 class RequirementsDelete(DeleteView):
     model = Requirements
     success_url = '/requirements/'
+
+def requirements_index(request):
+    requirements_list = Requirements.objects.filter(user = request.user)
+    return render(request, 'main_app/requirement_list.html', {'requirements_list': requirements_list})

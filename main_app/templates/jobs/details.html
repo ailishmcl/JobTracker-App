@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1> Job Details </h1>
+<div class="">
+    <div class="">
+
+        <span class="">{{ job.title }}</span>
+        <p>Company: {{ job.company }}</p>
+        <p>Contract Type: {{ job.contract_type }}</p>
+        <p>Salary Type: {{ job.salary }}</p>
+        <p>Post Link: {{ job.link }}</p>
+        <p>Description: {{ job.description }}</p>
+        <p>Company Contact: {{ job.contact }}</p>
+
+    
+
+    </div>
+
+    <div class="">
+        <a href="{% url 'jobs_update' job.id %}">Edit</a>
+        <a href="{% url 'jobs_delete' job.id %}">Delete</a>
+    </div>
+
+</div>
+
+<div>
+
+
+    <form action="{% url 'add_requirement' job.id %}" method="post">
+        {% csrf_token %}
+        {{ requirements_form.as_p }}
+        <input type="submit" value="Add Requirement" class="btn">
+    </form>
+
+    {% if job.requirements_form %}
+    <div class="card-panel teal-text center-align"> You have requirements for {{ job.title }}. </div>
+    {% else %}
+    <div class="card-panel red-text center-align"> No requirements assigned for {{ job.title }}. </div>
+    {% endif %}
+
+    <table class="striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>List of Requirements</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for requirement in job.requirements.all %}
+            <tr>
+                <td>{{ requirement.get_type_display }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+
+
+{% endblock %}
