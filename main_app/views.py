@@ -1,12 +1,7 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .models import Job, Requirements
+from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-
-
-import os
-
+from .models import Job, Requirements
 # Create your views here.
 
 class JobCreate(CreateView):
@@ -30,5 +25,28 @@ class JobDelete(DeleteView):
 
 # home URL
 def home(request):
-    os.getenv('NAME')
     return render(request, 'home.html')
+
+
+
+
+
+
+
+class RequirementsList(ListView):
+    model = Requirements
+
+class RequirementsDetail(DetailView):
+    model = Requirements
+
+class RequirementsCreate(CreateView):
+    model = Requirements
+    fields = '__all__'
+
+class RequirementsUpdate(UpdateView):
+    model = Requirements
+    fields = '__all__'
+
+class RequirementsDelete(DeleteView):
+    model = Requirements
+    success_url = '/requirements/'
