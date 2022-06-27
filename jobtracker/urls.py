@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # mount route for main_app
     path('', include('main_app.urls')),
+    # mount route for authentication functionality
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
