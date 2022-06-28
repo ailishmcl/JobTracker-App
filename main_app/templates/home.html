@@ -1,9 +1,16 @@
+<link href="../static/css/home.css" rel="stylesheet"/>
 {% extends 'base.html' %}
 
 {% block content %}
 
-<h1> Job Tracker App </h1>
-
+<div id="body">
+    <div>
+           <h2 style="font-weight: bold;">Are you ready to take the next step in your career?</h2>
+    </div>
+    <div style="width: 100%;  background-image: linear-gradient(to top,#7636FA 50%,transparent); height: 150px; position: absolute; bottom: 0; border-radius: 10px; display: flex; align-items: center; justify-content: center">
+        <u><a id="desc" href="{% url 'signup' %}">Sign up now!</a></u>
+    </div>
+</div>
 
 
 {% endblock %}
