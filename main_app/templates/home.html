@@ -1,9 +1,48 @@
+<style>
+    #body {
+        display: flex;
+        justify-content: space-between;
+    }
+    img {
+        max-height: 30vw;
+    }
+    h4 {
+        text-align: center;
+    }
+</style>
 {% extends 'base.html' %}
 
 {% block content %}
 
-<h1> Job Tracker App </h1>
+<div id="body">
+    <div>
+           <h4 style="font-weight: bold; margin-top: 22.5%" class="typed"></h4>
+    </div>
 
+    <div>
+        <img src="../static/img/laptop.gif" alt="content"/>
+    </div>
+
+</div>
+<script type="text/javascript" defer>
+    const typed = document.querySelector(".typed");
+
+    function typeQuote(element, text, speed) {
+        let index = 0;
+        timer = setInterval(function () {
+            if (index < text.length) {
+                element.append(text.charAt(index));
+                index++;
+            } else {
+                clearInterval(timer);
+            }
+        }, speed);
+    }
+
+    setTimeout(() => {
+        typeQuote(typed, "Are you ready to take the next step in your career?", 220);
+    }, 900);
+</script>
 
 
 {% endblock %}
