@@ -5,3 +5,71 @@
 select {
     display: block !important;
 }
+
+.job-status {
+    padding: 5px; 
+    color: white;
+    text-align: center;
+    width: 150px;
+}
+
+.bg-green {
+    background-color: #8ef28e;
+}
+
+.bg-yellow {
+    background-color: #e3f28e;
+}
+
+.bg-orange {
+    background-color: #f2b88e;
+}
+
+.bg-red {
+    background-color: #f28e8e;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.brand-logo {
+    color: yellow !important; 
+    margin-left: 5%; 
+    font-family: 'Oleo Script Swash Caps', cursive; 
+    font-size: 300%
+}
+
+nav ul a {
+    color: yellow;
+}
+
+.nav-wrapper {
+    font-size: 100%;
+    background-color: #7636FA;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* footer {
+    font-size: 20px; 
+    margin-top: 5%; */
+footer.page-footer {
+    padding-top: 0;
+    text-align: right;
+    background-color: #7636FA;
+}
+    
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    color: #323232;
+}
+

@@ -4,13 +4,28 @@
 
 <h1> Job Details </h1>
 
-
-    {{ job.status }}
+    <div class="center-align center">
+                    
+        {% if job.status == 'New' %}
+        <h6 class="job-status bg-green">{{ job.status }}</h6>
+        {% elif job.status == 'Application Sent' %}
+        <h6 class="job-status bg-yellow">{{ job.status }}</h6>
+        {% elif job.status == 'Interviewing' %}
+        <h6 class="job-status bg-orange">{{ job.status }}</h6>
+        {% elif job.status == 'Unsuccessful' %}
+        <h6 class="job-status bg-red">{{ job.status }}</h6>
+        {%endif %}
+    </div>
 
     
     
 <div class="">
     <div class="">
+
+        <div class="right">
+            <a href="{% url 'jobs_update' job.id %}">Edit</a>&nbsp;
+            <a href="{% url 'jobs_delete' job.id %}">Delete</a>
+        </div>
 
         <span class="">{{ job.title }}</span>
         
@@ -34,11 +49,6 @@
 
         {% endif %}
 
-    </div>
-
-    <div class="">
-        <a href="{% url 'jobs_update' job.id %}">Edit</a>
-        <a href="{% url 'jobs_delete' job.id %}">Delete</a>
     </div>
 
 </div>
