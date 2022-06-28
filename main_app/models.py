@@ -5,7 +5,13 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-
+STATUS_CHOICES = [
+        ('New','New'),
+        ('Application Sent', 'Application Sent'),
+        ('Interviewing','Interviewing'),
+        ('Successful','Successful'),
+        ('Unsuccessful','Unsuccessful'),
+    ]
 
 class Requirements(models.Model):
     type = models.CharField(max_length=100)
@@ -34,6 +40,7 @@ class Job(models.Model):
     contact = models.CharField(max_length=150)
     requirements = models.ManyToManyField(Requirements)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='New')
 
     def get_absolute_url(self):
         return reverse('detail', kwargs = {'job_id': self.id})

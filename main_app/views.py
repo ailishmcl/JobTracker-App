@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Profile
 from .models import Job, Requirements
-from .forms import RequirementsForm
+from .forms import RequirementsForm, StatusForm
 # Create your views here.
 
 
@@ -39,8 +39,11 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
+    form_class = StatusForm
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job
