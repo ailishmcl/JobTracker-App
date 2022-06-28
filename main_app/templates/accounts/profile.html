@@ -2,10 +2,37 @@
 
 {% block content %}
 
-    <h1> Profile Page </h1>
+    
 
-    <div> {{ user.username }}  </div>  
-    <a href="{% url 'password_change' %}"> Change Password </a>
+    <h1> Profile </h1>
+    <div class="content-section">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            <div class="media-body">
+                <h2 class="account-heading"> Name: {{ user.profile.name }} </h2>
+                <p class="text-secondary"> Username: {{ user.username }} </p>
+                <p class="text-secondary"> Email: {{ user.profile.email }} </p>
+                <p class="text-secondary"> CV: <a href="{{ user.profile.cv }}"> {{ user.profile.cv }} </a> </p>
+                <p class="text-secondary"> Cover Letter: <a href="{{ user.profile.coverletter }}">{{ user.profile.coverletter }} </a>  </p>
+                <p class="text-secondary"> Other: {{ user.profile.other }} </p>
+            </div>
+        </div>
+    
+
+        <a href="{% url 'password_change' %}"> Change Password </a>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"> Edit Profile Information </legend>
+                {{ u_form }}
+                {{ p_form }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn" type="submit"> Update </button>
+            </div>
+        </form>
+    </div>
 
 
 {% endblock %}

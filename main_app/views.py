@@ -1,14 +1,17 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Requirements
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Profile
 from .models import Job, Requirements
+from .forms import RequirementsForm, UserUpdateForm, ProfileUpdateForm, UserRegisterForm
+from django.contrib import messages 
+
+
+
 from .forms import RequirementsForm, StatusForm
 # Create your views here.
 
@@ -119,30 +122,37 @@ def profile(request):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, f'Your account has been created and you have been logged in!')
             return redirect('index')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
+    form = UserRegisterForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
 
-# class ProfileCreate(CreateView):
-#     model = Profile
-#     fields = ['phone', 'city', 'zipcode']
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your profile information has been updated!')
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+        context = {
+            'u_form' : u_form,
+            'p_form' : p_form
+        }
+    return render(request, 'accounts/profile.html', context)
 
 
-# class ProfileUpdate(UpdateView):
-#     model = Profile
-#     fields = ['phone', 'city', 'zipcode']
-#     success_url = '/profile/'
 
-
-# class UserUpdate(UpdateView):
-#     model = User
-#     fields = ['first_name', 'last_name', 'email']
-#     success_url = '/profile/'
