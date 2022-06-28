@@ -59,6 +59,92 @@
     </table>
 </div>
 
+<!-- Assigned Requirement -->
+
+<hr>
+
+<a name="requirements">
+
+    <div class="row">
+        <div class="col s6">
+            <h4> Requirement </h4>
+
+            {% if job.requirements.count %}
+
+            {% for requirement in job.requirements.all %}
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                    <span> {{ requirement.type }} </span>
+                    <i class="material-icons"></i>
+                </span>
+                </div>
+
+                <div class="card-action">
+                    <form action="{% url 'unassoc_requirement' job.id requirement.id %}#requirements" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn"> Remove</button>
+                    </form>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <h5>Nothing done :(</h5>
+
+            {% endif%}
+
+        </div>
+
+<!-- Not Assigned Requirement -->
+
+        <div class="col s6">
+            <h4>{{ job.title }}'s Planner</h4>
+
+            {% if requirements.count %}
+
+            {% for requirement in requirements.all %}
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                    <span> {{ requirement.type }} </span>
+                    </span>
+                </div>
+
+
+                <div class="card-action">
+                    <form action="{% url 'assoc_requirement' job.id requirement.id %}#requirements" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn"> Add</button>
+                    </form>
+
+                    <div class="input-field col s12">
+                        <select>
+                            <form action ="{% url 'assoc_requirement' job.id requirement.id %}" method="post"></form>
+                        </select>
+                        <label>Select an option</label>
+                      </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+                {% else %}
+                    <h5> {{ job.title }} is up to date <i class="material-icons">done_all</i></h5>
+                    <p><a href="{% url 'requirements_create' %}"> Add new Requirement to the vacancy </a></p>
+
+                {% endif %}
+        </div>
+
+    </div>
+
+</a>
+
+
 
 
 {% endblock %}
