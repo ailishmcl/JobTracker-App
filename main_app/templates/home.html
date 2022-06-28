@@ -1,48 +1,16 @@
-<style>
-    #body {
-        display: flex;
-        justify-content: space-between;
-    }
-    img {
-        max-height: 30vw;
-    }
-    h4 {
-        text-align: center;
-    }
-</style>
+<link href="../static/css/home.css" rel="stylesheet"/>
 {% extends 'base.html' %}
 
 {% block content %}
 
 <div id="body">
     <div>
-           <h4 style="font-weight: bold; margin-top: 22.5%" class="typed"></h4>
+           <h2 style="font-weight: bold;">Are you ready to take the next step in your career?</h2>
     </div>
-
-    <div>
-        <img src="../static/img/laptop.gif" alt="content"/>
+    <div style="width: 100%;  background-image: linear-gradient(to top,#7636FA 50%,transparent); height: 150px; position: absolute; bottom: 0; border-radius: 10px; display: flex; align-items: center; justify-content: center">
+        <u><a id="desc" href="{% url 'signup' %}">Sign up now!</a></u>
     </div>
-
 </div>
-<script type="text/javascript" defer>
-    const typed = document.querySelector(".typed");
-
-    function typeQuote(element, text, speed) {
-        let index = 0;
-        timer = setInterval(function () {
-            if (index < text.length) {
-                element.append(text.charAt(index));
-                index++;
-            } else {
-                clearInterval(timer);
-            }
-        }, speed);
-    }
-
-    setTimeout(() => {
-        typeQuote(typed, "Are you ready to take the next step in your career?", 220);
-    }, 900);
-</script>
 
 
 {% endblock %}

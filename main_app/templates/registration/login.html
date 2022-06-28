@@ -2,14 +2,14 @@
 
 {% block content %}
 
-    <h1> Log In </h1>
+    <h1 style="color: white"> Log In </h1>
 
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
 
         {{ form.as_p }}
 
-        <input type="submit" value="Log In" class="btn">
+        <input type="submit" value="Log In" class="btn" style="background: #7636FA; color: yellow; font-family: Azonix">
         <input type="hidden" name="next" value="{{ next }}">
     </form>
 
