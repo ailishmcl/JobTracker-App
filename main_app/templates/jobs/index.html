@@ -10,13 +10,13 @@
 
 {% for job in jobs %}
 
-<div class="">
+<div class="row">
 
     <div class="">
 
-        <div class="">
+        <div class="col s12">
 
-            <div>
+            <div class="col s12 m6 l3">
 
                 <span class=""> {{ job.title }} </span>
 
@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <a href="{% url 'detail' job.id %}">See details</a>
+        <a href="{% url 'detail' job.id %}" class="waves-effect waves-light deep-purple accent-3 btn">See details</a>
 
     </div>
 </div>

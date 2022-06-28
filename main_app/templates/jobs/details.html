@@ -7,10 +7,24 @@
 
     {{ job.status }}
 
+    
+    
 <div class="">
     <div class="">
 
         <span class="">{{ job.title }}</span>
+        
+        {% if job.status == 'Unsuccessful' %}
+        <p class="red-text">Feedback: {{ job.feedback }}</p>
+        <p>Company: {{ job.company }}</p>
+        <p>Contract Type: {{ job.contract_type }}</p>
+        <p>Salary Type: {{ job.salary }}</p>
+        <p>Post Link: {{ job.link }}</p>
+        <p>Description: {{ job.description }}</p>
+        <p>Company Contact: {{ job.contact }}</p>
+        
+        {% else %}
+        
         <p>Company: {{ job.company }}</p>
         <p>Contract Type: {{ job.contract_type }}</p>
         <p>Salary Type: {{ job.salary }}</p>
@@ -18,7 +32,7 @@
         <p>Description: {{ job.description }}</p>
         <p>Company Contact: {{ job.contact }}</p>
 
-    
+        {% endif %}
 
     </div>
 
