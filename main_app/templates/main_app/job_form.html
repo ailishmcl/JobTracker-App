@@ -8,11 +8,16 @@
     <h1>Add New Job</h1>
 {% endif %}
 
+
     <form action="" method="post">
 
         {% csrf_token %}
 
-        <table class="">
+        
+        <table class="input-field col s12">
+
+            
+
             {{ form.as_table }}
         </table>
 
