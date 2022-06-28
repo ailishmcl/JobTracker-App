@@ -12,6 +12,7 @@ from django.contrib import messages
 
 
 
+from .forms import RequirementsForm, StatusForm
 # Create your views here.
 
 
@@ -41,8 +42,11 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
+    form_class = StatusForm
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job
