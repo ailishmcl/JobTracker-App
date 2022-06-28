@@ -62,7 +62,7 @@
 
     <div class="row">
         <div class="col s6">
-            <h4> Requirements </h4>
+            <h5> Requirements </h6>
 
             {% if job.requirements.count %}
             <div class="card-panel teal-text center-align"> You have requirements for {{ job.title }}. </div>
@@ -80,7 +80,7 @@
                 <div class="card-action">
                     <form action="{% url 'unassoc_requirement' job.id requirement.id %}#requirements" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn"> Remove</button>
+                        <button type="submit" class="btn "> Remove</button>
                     </form>
                 </div>
 
@@ -98,8 +98,8 @@
 
 <!-- Not Assigned Requirement -->
 
-        <div class="col s12">
-            <h4>{{ job.title }}'s Planner</h4>
+        <div class="col s12 m6">
+            <h5>Requirements available for {{ job.title }}</h5>
 
             {% if requirements.count %}
 
@@ -115,7 +115,7 @@
                 <div class="card-action">
                     <form action="{% url 'assoc_requirement' job.id requirement.id %}#requirements" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn"> Add</button>
+                        <button type="submit" class="btn deep-purple accent-3"> Add</button>
                     </form>
                 </div>
             </div>
@@ -131,6 +131,7 @@
     </div>
 
 </a>
+
 
 
 

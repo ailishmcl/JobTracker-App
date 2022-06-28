@@ -8,11 +8,12 @@
 <h5>Clique <a href="{% url 'jobs_create' %}"> HERE </a> to start your wishlist.</h5>
 {% endif %}
 
+<div class="flex-container">
+<div class="row card-container">
+
 {% for job in jobs %}
 
-
-<div class="row">
-    <div class="col s4">
+    <div class="col s12 m6 l4">
 
         <div class="card small">
 
@@ -37,19 +38,20 @@
                 <p>Contract Type: {{ job.contract_type }}</p>
                 <p>Salary: {{ job.salary }}</p>
 
-                <a href="{% url 'detail' job.id %}" class="waves-effect waves-light deep-purple accent-3 btn right">See details</a>&nbsp;
-
             </div>
-
-            
-
+            <div class="card-action">
+                <a href="{% url 'detail' job.id %}" class="waves-effect waves-light deep-purple accent-3 btn right">See details</a>&nbsp;
+            </div>
         </div>
 
     </div>
-</div>
+
 
 
 
 {% endfor %}
+
+</div>
+</div>
 
 {% endblock %}
