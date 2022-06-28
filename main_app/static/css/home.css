@@ -1,0 +1,35 @@
+body {
+    background-image: url("../img/giphy.gif");
+    background-size: cover;
+}
+#body {
+    display: flex;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 15px );
+    -webkit-backdrop-filter: blur( 15px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    margin-top: 15%;
+    justify-content: center;
+    padding: 10%;
+}
+h2 {
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 5%;
+    color: yellow;
+    text-shadow: black 0.1px 0.1px 30px;
+    font-family: Azonix;
+}
+footer {
+    opacity: 0;
+}
+#desc {
+    color: yellow !important;
+    font-size: 30px;
+    font-family: Azonix;
+}
+u {
+    margin-top: 5%;
+}
