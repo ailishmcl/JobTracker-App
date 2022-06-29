@@ -25,6 +25,10 @@ select {
     background-color: #f2b88e;
 }
 
+.bg-blue {
+    background-color:cadetblue;
+}
+
 .bg-red {
     background-color: #f28e8e;
 }

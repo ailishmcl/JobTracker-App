@@ -12,6 +12,8 @@
         <h6 class="job-status bg-yellow">{{ job.status }}</h6>
         {% elif job.status == 'Interviewing' %}
         <h6 class="job-status bg-orange">{{ job.status }}</h6>
+        {% elif job.status == 'Successful' %}
+        <h6 class="job-status bg-blue">{{ job.status }}</h6>
         {% elif job.status == 'Unsuccessful' %}
         <h6 class="job-status bg-red">{{ job.status }}</h6>
         {%endif %}
