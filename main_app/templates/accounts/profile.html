@@ -26,17 +26,27 @@
 
         <a href="{% url 'password_change' %}"> Change Password </a>
 
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4"> Edit Profile Information </legend>
-                {{ u_form }}
-                {{ p_form }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn" type="submit"> Update </button>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit Profile Info</a>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4"> Edit Profile Information </legend>
+                        {{ u_form }}
+                        {{ p_form }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn" type="submit"> Update </button>
+                    </div>
+                </form>
             </div>
-        </form>
+        
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat"> Close </a>
+            </div>
+        </div>
     </div>
 
 
