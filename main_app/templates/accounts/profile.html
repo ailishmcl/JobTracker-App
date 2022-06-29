@@ -9,22 +9,23 @@
         <div class="media">
 
 
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="100px" width="100px">
             
 
 
             <div class="media-body">
-                <h2 class="account-heading"> Name: {{ user.profile.name }} </h2>
+                <h2 class="account-heading"> {{ user.first_name }} {{ user.last_name}} </h2>
                 <p class="text-secondary"> Username: {{ user.username }} </p>
-                <p class="text-secondary"> Email: {{ user.profile.email }} </p>
+                <p class="text-secondary"> Email: {{ user.email }} </p>
                 <p class="text-secondary"> CV: <a href="{{ user.profile.cv }}"> {{ user.profile.cv }} </a> </p>
                 <p class="text-secondary"> Cover Letter: <a href="{{ user.profile.coverletter }}">{{ user.profile.coverletter }} </a>  </p>
                 <p class="text-secondary"> Other: {{ user.profile.other }} </p>
             </div>
+            <a href="{% url 'password_change' %}"> Change Password </a>
         </div>
     
-
-        <a href="{% url 'password_change' %}"> Change Password </a>
+<br>
+        
 
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit Profile Info</a>
 

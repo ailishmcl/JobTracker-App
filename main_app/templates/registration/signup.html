@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <h1 class="form-heading">Sign Up </h1> 
     {% if error_message %}
     <p class="red-text"> {{ error_message }} </p> 
     {% endif %}
 
-    <form style="margin-top: 10%" action="{% url 'signup' %}" method="post">
+    <form style="color: black" action="{% url 'signup' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
 
