@@ -31,11 +31,10 @@
                     {% if user.is_authenticated %}
                     
                     <li> <a href="">Hi {{ user.first_name }},</a></li>
+                    <li> <a href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> </a></li>
                     <li> <a href="{% url 'jobs_create' %}"> Add A Job </a></li>
                     <li> <a href="{% url 'index' %}"> View All Jobs </a></li>
-                    <li> <a href="{% url 'requirements_create' %}"> Add Requirement </a></li>
-                    <li> <a href="{% url 'requirements_index' %}"> View All Requirements </a></li>               
-                    <li> <a href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> </a></li>
+                    <li> <a href="{% url 'requirements_create' %}"> Add Requirement </a></li>             
                     <li> <a href="{% url 'logout' %}"> Log Out </a></li>
 
                     {% else %}
@@ -69,6 +68,6 @@
             All Rights Reserved &copy; Job Tracker &nbsp;
         </div>
     </footer>
-    <script src="static/js/main.js"></script>
+    <script src="/static/js/main.js"></script>
 </body>
 </html>

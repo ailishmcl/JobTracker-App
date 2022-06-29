@@ -26,12 +26,12 @@ class UserRegisterForm(UserCreationForm):
 class UserUpdateForm(ModelForm):
     class Meta:
         model = User
-        fields = ['username']
+        fields = ['first_name', 'last_name', 'username', 'email']
 
 class ProfileUpdateForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['image', 'name', 'email', 'cv', 'coverletter', 'other']
+        fields = ['image', 'cv', 'coverletter', 'other']
 
 class StatusForm(ModelForm):
     
