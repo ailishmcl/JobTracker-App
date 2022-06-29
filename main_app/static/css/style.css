@@ -55,6 +55,10 @@ nav ul a {
     font-size: 100%;
 }
 
+--fa-inverse {
+    color: yellow;
+}
+
 main {
     flex: 1 0 auto;
 }
