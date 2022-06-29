@@ -37,7 +37,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    color: #707070;
+    /* color: #707070; */
 }
 
 nav .brand-logo {
@@ -72,7 +72,7 @@ footer .page-footer {
 
 
 a {
-    color: #323232;
+    color: #651fff;
 }
 
 .input-field {
@@ -89,6 +89,10 @@ a {
 }
 
 .dark-mode {
-    background-color: rgb(31, 31, 31);
-    color: white !important;
+    background-color: rgb(144, 144, 144);
+    /* color: rgb(31, 31, 31);  */
+}
+
+table.table-details > tbody > tr > th {
+    width: 30%;
 }

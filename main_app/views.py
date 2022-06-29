@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.models import User
@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Job, Requirements
 from .forms import RequirementsForm, UserUpdateForm, ProfileUpdateForm, UserRegisterForm
 from django.contrib import messages 
+from django.http import HttpResponse, JsonResponse
 
 
 
@@ -49,18 +50,20 @@ class JobUpdate(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 # For the modal button on index
-def status_index(request):
-    s_form = StatusForm        
-    if s_form.is_valid():
-        s_form.save()
-        messages.success(request, f'Updated Successfully')
-        return redirect('index')
-    else:
-        s_form = JobUpdate(instance=request.user)
-        context = {
-            's_form' : s_form            
-    }
-    return render(request, 'jobs/index.html', context)
+def edit_status_index(request, job_id):
+    instance = get_object_or_404(Job, id=job_id)
+    s_form = StatusForm(instance=instance) 
+    if request.method == 'POST':
+        s_form = StatusForm(request.POST, instance=instance)
+
+        if s_form.is_valid():
+            s_form.save(commit=True)
+            # messages.success(request, f'Updated Successfully')
+
+            return HttpResponse(s_form.as_table())
+        else:
+            print("Not updated, you can 'see details' and edit there")
+    return HttpResponse(s_form.as_table())
     
 
 

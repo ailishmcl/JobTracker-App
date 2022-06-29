@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $('.modal').modal();
 
+    $('.collapsible').collapsible();
+
     $('.fixed-action-btn').floatingActionButton();
 
     paintDarkMode();
@@ -8,9 +10,37 @@ $(document).ready(function(){
     $('#dark-mode').click(function() {
       darkMode();
     });
+
+    $("#status-form").on("submit", function(event){
+      
+      event.preventDefault();
+
+      let formValues= $(this).serialize();
+      let formTarget = $('#status-form').attr('action');
+      console.log(formValues);
+
+      $.post(formTarget, formValues, function(data){
+        window.location.reload();
+      });
+    });
+
   });
 
-  
+// Modal Status function for index page
+
+function findMyStatus(jobId){
+  let targetUrl = '/jobs/'+jobId+'/edit_status/';
+  $.ajax({
+    type: 'GET',
+    url: targetUrl,
+    success: function(res){          
+        $('#edit-status-form').html(res);
+        $('#status-form').attr('action',targetUrl); 
+        
+    }
+  })
+}
+
 // Dark mode on local storage
 
 function darkMode() {
