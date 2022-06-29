@@ -22,17 +22,37 @@
                 <div class="center-align center">
                     
                     {% if job.status == 'New' %}
-                    <h6 class="job-status bg-green">{{ job.status }}</h6>
+                    <a class="job-status bg-green">{{ job.status }}</a>
                     {% elif job.status == 'Application Sent' %}
-                    <h6 class="job-status bg-yellow">{{ job.status }}</h6>
+                    <a class="job-status bg-yellow">{{ job.status }}</a>
                     {% elif job.status == 'Interviewing' %}
-                    <h6 class="job-status bg-orange">{{ job.status }}</h6>
+                    <a class="job-status bg-orange">{{ job.status }}</a>
                     {% elif job.status == 'Successful' %}
-                    <h6 class="job-status bg-blue">{{ job.status }}</h6>
+                    <a class="job-status bg-blue">{{ job.status }}</a>
                     {% elif job.status == 'Unsuccessful' %}
-                    <h6 class="job-status bg-red">{{ job.status }}</h6>
+                    <a class="job-status bg-red">{{ job.status }}</a>
                     {%endif %}
                 </div>
+
+
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+        </div>
+
+
+
+
+
 
                 <h4 class="card-title" class="left-align left"> {{ job.title }} </h4>
 
