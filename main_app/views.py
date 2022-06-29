@@ -30,6 +30,7 @@ def jobs_index(request):
     # Filter will go here
     return render(request, 'jobs/index.html', {'jobs': jobs})
 
+
 class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
     fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
@@ -38,15 +39,30 @@ class JobCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-    
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    form_class = StatusForm
+    fields = ['status', 'feedback', 'title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+# For the modal button on index
+def status_index(request):
+    s_form = StatusForm        
+    if s_form.is_valid():
+        s_form.save()
+        messages.success(request, f'Updated Successfully')
+        return redirect('index')
+    else:
+        s_form = JobUpdate(instance=request.user)
+        context = {
+            's_form' : s_form            
+    }
+    return render(request, 'jobs/index.html', context)
+    
+
 
 class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job

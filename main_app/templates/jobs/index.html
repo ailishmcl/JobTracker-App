@@ -20,39 +20,48 @@
             <div class="card-content">
 
                 <div class="center-align center">
-                    
+                    <!-- Modal Trigger by color -->
                     {% if job.status == 'New' %}
-                    <a class="job-status bg-green">{{ job.status }}</a>
+                    <a class="job-status bg-green modal-trigger" href="#modal{{job.id}}">{{ job.status }}</a>
                     {% elif job.status == 'Application Sent' %}
-                    <a class="job-status bg-yellow">{{ job.status }}</a>
+                    <a class="job-status bg-yellow modal-trigger" href="#modal{{job.id}}">{{ job.status }}</a>
                     {% elif job.status == 'Interviewing' %}
-                    <a class="job-status bg-orange">{{ job.status }}</a>
+                    <a class="job-status bg-orange modal-trigger" href="#modal{{job.id}}">{{ job.status }}</a>
                     {% elif job.status == 'Successful' %}
-                    <a class="job-status bg-blue">{{ job.status }}</a>
+                    <a class="job-status bg-blue modal-trigger" href="#modal{{job.id}}">{{ job.status }}</a>
                     {% elif job.status == 'Unsuccessful' %}
-                    <a class="job-status bg-red">{{ job.status }}</a>
+                    <a class="job-status bg-red modal-trigger" href="#modal{{job.id}}">{{ job.status }}</a>
                     {%endif %}
                 </div>
 
 
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
         <!-- Modal Structure -->
-        <div id="modal1" class="modal">
+        <div id="modal{{job.id}}" class="modal">
         <div class="modal-content">
             
             <h4>{{ job.status }}</h4>
+            <form action="" method="post">
+
+                {% csrf_token %}
         
-            <p>{{ job.feedback }}</p>
+                
+                <table class="input-field col s12">
+                    {{ s_form }}
+
+                    
+                </table>
+        
+                <input type="submit" value="Submit" class="btn deep-purple accent-3">
+            </form>
             
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
         </div>
         </div>
 
-
+        <!-- End Modal -->
 
 
 
@@ -65,6 +74,7 @@
 
             </div>
             <div class="card-action">
+                
                 <a href="{% url 'detail' job.id %}" class="waves-effect waves-light deep-purple accent-3 btn right">See details</a>&nbsp;
             </div>
         </div>

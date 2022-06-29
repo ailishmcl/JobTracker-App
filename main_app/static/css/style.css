@@ -83,3 +83,12 @@ a {
 .form-heading {
     color: #651fff;
 }
+
+.modal-trigger {
+    width: 250px;
+}
+
+.dark-mode {
+    background-color: rgb(31, 31, 31);
+    color: white !important;
+}
