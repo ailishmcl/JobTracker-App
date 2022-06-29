@@ -115,10 +115,6 @@ def unassoc_requirement(request, job_id, requirement_id):
 
 # User and profile views
 
-def profile(request):
-    return render(request, 'accounts/profile.html')
-  
-
 def signup(request):
     error_message = ''
     if request.method == 'POST':

@@ -32,6 +32,7 @@ class ProfileUpdateForm(ModelForm):
     class Meta:
         model = Profile
         fields = ['image', 'name', 'email', 'cv', 'coverletter', 'other']
+
 class StatusForm(ModelForm):
     
     class Meta:
