@@ -4,13 +4,44 @@
 
 <h1> Job Details </h1>
 
+    <div class="center-align center">
+                    
+        {% if job.status == 'New' %}
+        <h6 class="job-status bg-green">{{ job.status }}</h6>
+        {% elif job.status == 'Application Sent' %}
+        <h6 class="job-status bg-yellow">{{ job.status }}</h6>
+        {% elif job.status == 'Interviewing' %}
+        <h6 class="job-status bg-orange">{{ job.status }}</h6>
+        {% elif job.status == 'Successful' %}
+        <h6 class="job-status bg-blue">{{ job.status }}</h6>
+        {% elif job.status == 'Unsuccessful' %}
+        <h6 class="job-status bg-red">{{ job.status }}</h6>
+        {%endif %}
+    </div>
 
-    {{ job.status }}
-
+    
+    
 <div class="">
     <div class="">
 
+        <div class="right">
+            <a href="{% url 'jobs_update' job.id %}">Edit</a>&nbsp;
+            <a href="{% url 'jobs_delete' job.id %}">Delete</a>
+        </div>
+
         <span class="">{{ job.title }}</span>
+        
+        {% if job.status == 'Unsuccessful' %}
+        <p class="red-text">Feedback: {{ job.feedback }}</p>
+        <p>Company: {{ job.company }}</p>
+        <p>Contract Type: {{ job.contract_type }}</p>
+        <p>Salary Type: {{ job.salary }}</p>
+        <p>Post Link: {{ job.link }}</p>
+        <p>Description: {{ job.description }}</p>
+        <p>Company Contact: {{ job.contact }}</p>
+        
+        {% else %}
+        
         <p>Company: {{ job.company }}</p>
         <p>Contract Type: {{ job.contract_type }}</p>
         <p>Salary Type: {{ job.salary }}</p>
@@ -18,13 +49,8 @@
         <p>Description: {{ job.description }}</p>
         <p>Company Contact: {{ job.contact }}</p>
 
-    
+        {% endif %}
 
-    </div>
-
-    <div class="">
-        <a href="{% url 'jobs_update' job.id %}">Edit</a>
-        <a href="{% url 'jobs_delete' job.id %}">Delete</a>
     </div>
 
 </div>
@@ -38,7 +64,7 @@
 
     <div class="row">
         <div class="col s6">
-            <h4> Requirements </h4>
+            <h5> Requirements </h6>
 
             {% if job.requirements.count %}
             <div class="card-panel teal-text center-align"> You have requirements for {{ job.title }}. </div>
@@ -56,7 +82,7 @@
                 <div class="card-action">
                     <form action="{% url 'unassoc_requirement' job.id requirement.id %}#requirements" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn"> Remove</button>
+                        <button type="submit" class="btn "> Remove</button>
                     </form>
                 </div>
 
@@ -74,8 +100,8 @@
 
 <!-- Not Assigned Requirement -->
 
-        <div class="col s12">
-            <h4>{{ job.title }}'s Planner</h4>
+        <div class="col s12 m6">
+            <h5>Requirements available for {{ job.title }}</h5>
 
             {% if requirements.count %}
 
@@ -91,7 +117,7 @@
                 <div class="card-action">
                     <form action="{% url 'assoc_requirement' job.id requirement.id %}#requirements" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn"> Add</button>
+                        <button type="submit" class="btn deep-purple accent-3"> Add</button>
                     </form>
                 </div>
             </div>
@@ -107,6 +133,7 @@
     </div>
 
 </a>
+
 
 
 

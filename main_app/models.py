@@ -41,6 +41,7 @@ class Job(models.Model):
     requirements = models.ManyToManyField(Requirements)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='New')
+    feedback = models.TextField(max_length=250, default='')
 
     def get_absolute_url(self):
         return reverse('detail', kwargs = {'job_id': self.id})

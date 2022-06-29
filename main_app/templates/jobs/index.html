@@ -8,32 +8,52 @@
 <h5>Clique <a href="{% url 'jobs_create' %}"> HERE </a> to start your wishlist.</h5>
 {% endif %}
 
+<div class="flex-container">
+<div class="row card-container">
+
 {% for job in jobs %}
 
-<div class="">
+    <div class="col s12 m6 l4">
 
-    <div class="">
+        <div class="card small">
 
-        <div class="">
+            <div class="card-content">
 
-            <div>
+                <div class="center-align center">
+                    
+                    {% if job.status == 'New' %}
+                    <h6 class="job-status bg-green">{{ job.status }}</h6>
+                    {% elif job.status == 'Application Sent' %}
+                    <h6 class="job-status bg-yellow">{{ job.status }}</h6>
+                    {% elif job.status == 'Interviewing' %}
+                    <h6 class="job-status bg-orange">{{ job.status }}</h6>
+                    {% elif job.status == 'Successful' %}
+                    <h6 class="job-status bg-blue">{{ job.status }}</h6>
+                    {% elif job.status == 'Unsuccessful' %}
+                    <h6 class="job-status bg-red">{{ job.status }}</h6>
+                    {%endif %}
+                </div>
 
-                <span class=""> {{ job.title }} </span>
+                <h4 class="card-title" class="left-align left"> {{ job.title }} </h4>
 
                 <p>Company: {{ job.company }}</p>
                 <p>Contract Type: {{ job.contract_type }}</p>
                 <p>Salary: {{ job.salary }}</p>
 
             </div>
+            <div class="card-action">
+                <a href="{% url 'detail' job.id %}" class="waves-effect waves-light deep-purple accent-3 btn right">See details</a>&nbsp;
+            </div>
         </div>
 
-        <a href="{% url 'detail' job.id %}">See details</a>
-
     </div>
-</div>
+
 
 
 
 {% endfor %}
+
+</div>
+</div>
 
 {% endblock %}
