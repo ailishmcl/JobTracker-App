@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block content %}
     <h1 class="form-heading">Sign Up </h1> 
     {% if error_message %}
@@ -9,18 +10,31 @@
 
     <form style="color: black" action="{% url 'signup' %}" method="post">
         {% csrf_token %}
-        <div class="row">
-            <div class="form-group input-field col s12">
-                {% render_field form.username type="text" class="form-control" placeholder="username" id="exampleusername" %}
-            </div>
+
         <div class="row">
             <div class="form-group input-field col s6">
-                {% render_field form.password1 type="password" class="form-control" placeholder="password" id="exampleuser" %}
+                {% render_field form.first_name type="text" class="form-control" placeholder="First Name" %}
             </div>
             <div class="form-group input-field col s6">
-                {% render_field form.password1 type="password" class="form-control" placeholder="password" id="exampleuser" %}
+                {% render_field form.last_name type="text" class="form-control" label="Last Name" %}
             </div>
-          </div>
+        </div>
+        <div class="row">
+            <div class="form-group input-field col s6">
+                {% render_field form.username type="text" class="form-control" placeholder="Username" %}
+            </div>
+            <div class="form-group input-field col s6">
+                {% render_field form.email type="email" class="form-control" placeholder="Email" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group input-field col s6">
+                {% render_field form.password1 type="password" class="form-control" placeholder="password" %}
+            </div>
+            <div class="form-group input-field col s6">
+                {% render_field form.password2 type="password" class="form-control" placeholder="password" %}
+            </div>
+        </div>
 
         <input type="submit" value="Sign Up" class="btn" style="background: #7636FA; color: yellow; font-family: Azonix">
     </form>
