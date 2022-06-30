@@ -102,6 +102,36 @@ table.table-details > tbody > tr > th {
     width: 30%;
 }
 
+.btn, .btn-large, .btn-small {
+    font-family: "Azonix", sans-serif;
+    color: yellow;
+    background-color: #651fff;
+}
+:hover.btn, .btn-large, .btn-small {
+    font-family: "Azonix", cursive;
+    color: white;
+    background-color: #651fff;
+}
+
+button {
+    font-family: "Azonix", sans-serif;
+    color: yellow;
+    background-color: #651fff;
+    border: none;
+    border-radius: 2px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .5px;
+}
+
+
+.account-heading {
+    text-align: right;
+}
+
 /* label color */
 .input-field label {
     color: #651fff;

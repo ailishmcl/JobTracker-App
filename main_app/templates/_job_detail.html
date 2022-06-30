@@ -3,10 +3,6 @@
     <thead>
         <tbody>
             <tr>
-                <th>Company:</th>
-                <td>{{ job.company }}</td>
-            </tr>
-            <tr>
                 <th>Contract Type:</th>
                 <td>{{ job.contract_type }}</td>
             </tr>
@@ -16,15 +12,15 @@
             </tr>
             <tr>
                 <th>Post Link:</th>
-                <td>{{ job.link }}</td>
-            </tr>
-            <tr>
-                <th>Description:</th>
-                <td>{{ job.description }}</td>
+                <td><a href="{{ job.link }}" target="_blank"> Clique here</a></td>
             </tr>
             <tr>
                 <th>Company Contact:</th>
                 <td>{{ job.contact }}</td>
+            </tr>
+            <tr>
+                <th>Description:</th>
+                <td>{{ job.description }}</td>
             </tr>
         </tbody>
     </thead>

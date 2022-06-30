@@ -2,7 +2,7 @@
 
 {% block content%}
 
-<h1> Job Details </h1>
+<h1></h1>
 
     <div class="center-align center">
                     
@@ -29,7 +29,9 @@
             <a href="{% url 'jobs_delete' job.id %}">Delete</a>
         </div>
 
-        <h4 class="">{{ job.title }}</h4>
+        <h3 class="">{{ job.title }}</h3>
+
+        <h5>Company: {{ job.company }}</h5>
         
         {% if job.status == 'Unsuccessful' %}
         <p class="red-text">Feedback: {{ job.feedback }}</p>
