@@ -33,3 +33,10 @@ footer {
 u {
     margin-top: 5%;
 }
+
+footer .page-footer {
+    padding-top: 0;
+    text-align: center;
+    color: yellow;
+    background-color:#651fff;
+}
