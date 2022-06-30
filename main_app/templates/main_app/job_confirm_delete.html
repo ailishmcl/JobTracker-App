@@ -10,8 +10,8 @@
     <form action="" method="post">
         {% csrf_token %}
 
-        <input type="submit" value="Delete" class="">
-        <a href="{% url 'detail' job.id %}">Cancel</a>
+        <input type="submit" value="Delete" class="btn" style="background: #651fff; color: yellow; font-family: Azonix">
+        <a href="{% url 'detail' job.id %}" style="font-family: Azonix;">Cancel</a>
     </form>
 
 

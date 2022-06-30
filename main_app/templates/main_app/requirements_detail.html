@@ -2,14 +2,18 @@
 
 {% block content%}
 
-    <h1 class="form-heading"> Your Registered Job Requirements </h1>
-    <div>
-        <div> {{ requirements.type }} </div> 
-        <div> {{ requirements.description }} </div> 
+    <h3> Edit or delete this requirement: </h3>
+    <div class="card">
+        <div class="card-content">
+            <div class="card-title"> {{ requirements.type }} </div>
+            <div>{{ requirements.description }} </div>
+
+        </div>
+        <div class="card-action" style="background-color: #651fff">
+            <a href="{% url 'requirements_update' requirements.id %}" style="color: yellow;"> Edit </a> 
+            <a href="{% url 'requirements_delete' requirements.id %}" style="color: yellow;"> Delete </a> 
+        </div>
     </div>
-    <div>
-        <a href="{% url 'requirements_update' requirements.id %}"> Edit </a>
-        <a href="{% url 'requirements_delete' requirements.id %}"> Delete </a> 
-    </div> 
+
 
 {% endblock %}
