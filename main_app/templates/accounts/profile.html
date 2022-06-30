@@ -78,11 +78,14 @@
             <div class="modal-content">
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <fieldset class="form-group">
-                        <legend class="border-bottom mb-4"> Edit Profile Information </legend>
-                        {{ u_form }}
-                        {{ p_form }}
+                    <legend class="border-bottom mb-4"> Edit Profile Information </legend>
+                    <fieldset class="input-field col s12">
+                        <span>{{ u_form }}</span>
+                        <hr>
+                        <br>
+                        <span>{{ p_form }}</span>
                     </fieldset>
+                    
                     <div class="form-group">
                         <button class="btn deep-purple accent-3" type="submit" style="color: yellow; font-family: Azonix; margin-top: 10px"> Update </button>
                     </div>
