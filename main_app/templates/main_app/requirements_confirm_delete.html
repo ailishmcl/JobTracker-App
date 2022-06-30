@@ -7,8 +7,8 @@
 
     <form action="" method="post">
         {% csrf_token %}
-        <input type="submit" value="Yes, delete">
-        <a href="{% url 'requirements_detail' object.id %}"> Cancel </a>
+        <input type="submit" value="Yes, delete" class="btn" style="background: #651fff; color: yellow; font-family: Azonix">
+        <a href="{% url 'requirements_detail' object.id %}" style="font-family: Azonix;"> Cancel </a>
     </form>
 
 {% endblock %}

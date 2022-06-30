@@ -43,7 +43,7 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    fields = ['status', 'feedback', 'title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
+    fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
 
     def form_valid(self, form):
         form.instance.user = self.request.user

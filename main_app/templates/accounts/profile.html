@@ -36,23 +36,23 @@
                 {% if user.profile.cv == None %}
                 <tr>
                     <th>CV Link:</th>
-                    <td>Edit your profile to add</td>
+                    <td>Edit your profile to add a CV </td>
                 </tr>
                 {% else %}
                 <tr>
                     <th>CV Link:</th>
-                    <td><a href="{{ user.profile.cv }}" target="_blank"> See your CV here </a></td>
+                    <td><a href="{{ user.profile.cv }}" target="_blank"> Your CV </a></td>
                 </tr>
                 {% endif %}
                 {% if user.profile.coverletter == None %}
                 <tr>
                     <th>Cover Letter:</th>
-                    <td>Edit your profile to add</td>
+                    <td>Edit your profile to add a cover letter</td>
                 </tr>
                 {% else %}
                 <tr>
                     <th>Cover Letter:</th>
-                    <td><a href="{{ user.profile.coverletter }}" target="_blank"> See your Coverletter here </a></td>
+                    <td><a href="{{ user.profile.coverletter }}" target="_blank"> Your Cover Letter </a></td>
                 </tr>
                 {% endif %}
                 <tr>

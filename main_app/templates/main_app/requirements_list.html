@@ -2,7 +2,9 @@
 
 {% block content%}
 
-<h1 class="form-heading"> Requirements List </h1>
+    
+
+<h1 class="form-heading"> Your Job Requirements </h1>
 
             
             {% for requirement in requirements_list %}
@@ -10,13 +12,12 @@
                 <a href="{% url 'requirements_detail' requirement.id %}"> 
                     <div class="card">
                         <div class="card-content">
-                    <div class="card-title"> Type: {{ requirement.type }} </div>
-                    <div> Description: {{ requirement.description }} </div>
-                
-            </div>
-            </div>
-        </a>
-        
+                            <div class="card-title"> {{ requirement.type }} </div>
+                            <div style="font-size: 20px"> Description: {{ requirement.description }} </div>
+                        </div>
+                    </div>
+                </a>
+    
 
 
     {% endfor %}
