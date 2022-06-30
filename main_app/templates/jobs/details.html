@@ -25,29 +25,19 @@
     <div class="">
 
         <div class="right">
-            <a href="{% url 'jobs_update' job.id %}">Edit</a>&nbsp;
+            <a href="{% url 'jobs_update' job.id %}">Edit </a>&nbsp;|
             <a href="{% url 'jobs_delete' job.id %}">Delete</a>
         </div>
 
-        <span class="">{{ job.title }}</span>
+        <h4 class="">{{ job.title }}</h4>
         
         {% if job.status == 'Unsuccessful' %}
         <p class="red-text">Feedback: {{ job.feedback }}</p>
-        <p>Company: {{ job.company }}</p>
-        <p>Contract Type: {{ job.contract_type }}</p>
-        <p>Salary Type: {{ job.salary }}</p>
-        <p>Post Link: {{ job.link }}</p>
-        <p>Description: {{ job.description }}</p>
-        <p>Company Contact: {{ job.contact }}</p>
+        <p>{% include '_job_detail.html' %}</p>
         
         {% else %}
         
-        <p>Company: {{ job.company }}</p>
-        <p>Contract Type: {{ job.contract_type }}</p>
-        <p>Salary Type: {{ job.salary }}</p>
-        <p>Post Link: {{ job.link }}</p>
-        <p>Description: {{ job.description }}</p>
-        <p>Company Contact: {{ job.contact }}</p>
+        <p>{% include '_job_detail.html' %}</p>
 
         {% endif %}
 
@@ -60,39 +50,42 @@
 
 <hr>
 
-<a name="requirements">
+<div name="requirements">
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s12 m6">
             <h5> Requirements </h6>
 
             {% if job.requirements.count %}
-            <div class="card-panel teal-text center-align"> You have requirements for {{ job.title }}. </div>
+            <div class="card-panel deep-purple accent-3 white-text center-align"> You have requirements for {{ job.title }}. </div>
 
             {% for requirement in job.requirements.all %}
 
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">
-                    <span> {{ requirement.type }} </span>
-                    <i class="material-icons"></i>
-                </span>
-                </div>
+            
 
-                <div class="card-action">
-                    <form action="{% url 'unassoc_requirement' job.id requirement.id %}#requirements" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn "> Remove</button>
-                    </form>
-                </div>
 
-            </div>
+            <ul class="collapsible z-depth-0">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">arrow_drop_down</i><span> {{ requirement.type }} </span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="">
+                            <span> Description: {{ requirement.description }} </span>
+                        
+                            <form action="{% url 'unassoc_requirement' job.id requirement.id %}#requirements" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-small deep-purple accent-3 right"> Remove</button>
+                            </form>
+                        </div>
+                    </div>   
+                </li>
+            </ul>
 
             {% endfor %}
 
             {% else %}
 
-            <div class="card-panel red-text center-align"> No requirements assigned for {{ job.title }}. </div>
+            <div class="card-panel red-text center-align z-depth-0"> No requirements assigned for {{ job.title }}. </div>
 
             {% endif%}
 
@@ -106,33 +99,39 @@
             {% if requirements.count %}
 
             {% for requirement in requirements.all %}
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">
-                    <span> {{ requirement.type }} </span>
-                    </span>
-                </div>
 
 
-                <div class="card-action">
-                    <form action="{% url 'assoc_requirement' job.id requirement.id %}#requirements" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn deep-purple accent-3"> Add</button>
-                    </form>
-                </div>
-            </div>
+            <ul class="collapsible z-depth-0">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">arrow_drop_down</i><span> {{ requirement.type }} </span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="">
+                            <span> Description: {{ requirement.description }} </span>
+                        
+                            <form action="{% url 'assoc_requirement' job.id requirement.id %}#requirements" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-small deep-purple accent-3 right"> Add</button>
+                            </form>
+                        </div>
+                    </div>   
+                </li>
+            </ul>
+
+
+
             {% endfor %}
 
                 {% else %}
-                    <h5> {{ job.title }} is up to date <i class="material-icons">done_all</i></h5>
-                    <p><a href="{% url 'requirements_create' %}"> Add new Requirement for your dashboard </a></p>
-
+                    <h5> {{ job.title }} is up to date <i class="small material-icons">check_box</i></h5>
                 {% endif %}
+                <p><a href="{% url 'requirements_create' %}"> Add new Requirement </a>&nbsp;|&nbsp;
+                <a href="{% url 'requirements_index' %}"> View All Requirements </a></p>
         </div>
 
     </div>
 
-</a>
+</div>
 
 
 
