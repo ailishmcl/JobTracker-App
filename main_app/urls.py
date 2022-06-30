@@ -17,6 +17,7 @@ urlpatterns = [
     path('jobs/<int:pk>/update/', views.JobUpdate.as_view(), name='jobs_update'),
     path('jobs/<int:pk>/delete/', views.JobDelete.as_view(), name='jobs_delete'),
     path('jobs/<int:job_id>/add_requirement/', views.add_requirement, name='add_requirement'),
+    path('jobs/<int:job_id>/edit_status/', views.edit_status_index, name='job_edit_status'),
 
 
 # requirements urls
@@ -37,7 +38,7 @@ urlpatterns = [
     path('accounts/password_change_done/', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
     path('accounts/password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('accounts/password_reset_done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('accounts/password_reset_confirm/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('accounts/password_reset_confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('accounts/password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
 ]

@@ -7,31 +7,47 @@
     <h1> Profile </h1>
     <div class="content-section">
         <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+
+
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="100px" width="100px">
+            
+
+
             <div class="media-body">
-                <h2 class="account-heading"> Name: {{ user.profile.name }} </h2>
+                <h2 class="account-heading"> {{ user.first_name }} {{ user.last_name}} </h2>
                 <p class="text-secondary"> Username: {{ user.username }} </p>
-                <p class="text-secondary"> Email: {{ user.profile.email }} </p>
+                <p class="text-secondary"> Email: {{ user.email }} </p>
                 <p class="text-secondary"> CV: <a href="{{ user.profile.cv }}"> {{ user.profile.cv }} </a> </p>
                 <p class="text-secondary"> Cover Letter: <a href="{{ user.profile.coverletter }}">{{ user.profile.coverletter }} </a>  </p>
                 <p class="text-secondary"> Other: {{ user.profile.other }} </p>
             </div>
+            <a href="{% url 'password_change' %}"> Change Password </a>
         </div>
     
+<br>
+        
 
-        <a href="{% url 'password_change' %}"> Change Password </a>
+        <a class="waves-effect waves-light btn modal-trigger deep-purple accent-3" href="#modal1" style="color: yellow; font-family: Azonix">Edit Profile Info</a>
 
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4"> Edit Profile Information </legend>
-                {{ u_form }}
-                {{ p_form }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn" type="submit"> Update </button>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4"> Edit Profile Information </legend>
+                        {{ u_form }}
+                        {{ p_form }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn deep-purple accent-3" type="submit" style="color: yellow; font-family: Azonix; margin-top: 10px"> Update </button>
+                    </div>
+                </form>
             </div>
-        </form>
+        
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat deep-purple accent-3" style="color: yellow; font-family: Azonix"> Close </a>
+            </div>
+        </div>
     </div>
 
 

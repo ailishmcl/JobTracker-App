@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.models import User
@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Job, Requirements
 from .forms import RequirementsForm, UserUpdateForm, ProfileUpdateForm, UserRegisterForm
 from django.contrib import messages 
+from django.http import HttpResponse, JsonResponse
 
 
 
@@ -30,6 +31,7 @@ def jobs_index(request):
     # Filter will go here
     return render(request, 'jobs/index.html', {'jobs': jobs})
 
+
 class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
     fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
@@ -38,15 +40,32 @@ class JobCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-    
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    form_class = StatusForm
+    fields = ['status', 'feedback', 'title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+# For the modal button on index
+def edit_status_index(request, job_id):
+    instance = get_object_or_404(Job, id=job_id)
+    s_form = StatusForm(instance=instance) 
+    if request.method == 'POST':
+        s_form = StatusForm(request.POST, instance=instance)
+
+        if s_form.is_valid():
+            s_form.save(commit=True)
+            # messages.success(request, f'Updated Successfully')
+
+            return HttpResponse(s_form.as_table())
+        else:
+            print("Not updated, you can 'see details' and edit there")
+    return HttpResponse(s_form.as_table())
+    
+
 
 class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job
@@ -114,10 +133,6 @@ def unassoc_requirement(request, job_id, requirement_id):
 
 
 # User and profile views
-
-def profile(request):
-    return render(request, 'accounts/profile.html')
-  
 
 def signup(request):
     error_message = ''
