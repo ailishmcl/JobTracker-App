@@ -2,13 +2,12 @@
 {% load widget_tweaks %}
 {% block content %}
 
-{% if messages %}
-<ul class="card teal-text messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+{% for message in messages %}
+    <div class="message">
+        <span>{{ message }}</span>
+        <a href="#" class="del-msg"></a>
+    </div>
+{% endfor %}
 
     <h1> Log In </h1>
 

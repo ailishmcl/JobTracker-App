@@ -20,13 +20,12 @@
 <header>
        <nav class="navbar-fixed deep-purple accent-3">
             <div class="nav-wrapper deep-purple accent-3">
-                <ul>
-                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; Job Tracker </a></li>
-                </ul>
+                
+                <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; Job Tracker </a>
 
-            
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons" style="color: yellow;">menu</i></a>
 
-                <b> <ul class="right">            
+                <b> <ul class="right hide-on-med-and-down">            
                     
 
                     {% if user.is_authenticated %}
@@ -45,12 +44,15 @@
                        
                 </ul>
                     {% endif %}
-
-                    
-
                 
             </div>
         </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            {% include '_mobile_nav.html' %}
+        </ul>
+
+
 </header>
 </b>
 <body>

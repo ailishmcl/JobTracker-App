@@ -4,10 +4,8 @@
 
 {% for message in messages %}
     <div class="message">
-        <div class="card blue-grey darken-1">
-            {{ message }}
-            <a href="#" class="del-msg">&times;</a>
-        </div>
+        <span>{{ message }}</span>
+        <a href="#" class="del-msg"></a>
     </div>
 {% endfor %}
 

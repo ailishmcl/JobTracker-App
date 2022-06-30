@@ -28,8 +28,7 @@ def about(request):
 
 # Job URL
 def jobs_index(request):
-    jobs = Job.objects.filter(user = request.user)
-    # Filter will go here
+    jobs = Job.objects.filter(user = request.user).order_by('id')
     return render(request, 'jobs/index.html', {'jobs': jobs})
 
 
