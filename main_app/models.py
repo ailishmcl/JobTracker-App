@@ -41,6 +41,7 @@ class Job(models.Model):
     requirements = models.ManyToManyField(Requirements)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES, default='New')
+    feedback = models.TextField(max_length=250, default='')
 
     def get_absolute_url(self):
         return reverse('detail', kwargs = {'job_id': self.id})
@@ -52,7 +53,7 @@ class Job(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='profile_pics/default.png', upload_to='profile_pics')
     name = models.CharField(max_length=150, default=None, blank=True, null=True)
     email = models.EmailField(default=None, blank=True, null=True)
     cv = models.URLField(max_length=2000, default=None, blank=True, null=True)

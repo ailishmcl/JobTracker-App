@@ -2,33 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afc8384-b77b-4042-af1f-8ea0cfdd42fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/img/profile_pics/blank-profile-picture-973460_640.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/profile_pics/default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/profile_pics/images_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0006_job_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0006_profile_coverletter_profile_cv_profile_image_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0007_alter_job_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0007_alter_profile_coverletter_alter_profile_cv_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0008_alter_job_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0008_profile_email_profile_name.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0009_alter_job_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0010_alter_job_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0011_merge_20220628_1435.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/1_93LVPuo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/1_MIEphOR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/1_gixOX8Q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/1_rbCNfF9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/4_IxW752G.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/4_dIEy95m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/profile_pics/super-gal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/migrations/0011_job_feedback.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/migrations/0012_merge_20220628_1433.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/migrations/0013_merge_20220628_1509.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/migrations/0014_alter_profile_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/migrations/0015_alter_profile_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/migrations/0016_alter_profile_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/migrations/0017_alter_profile_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/static/img/profile_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_app/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env~69687584fe6377561a200b8472a1d9a23bd6398a" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jobtracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobtracker/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobtracker/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobtracker/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/templates/accounts/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/accounts/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/templates/jobs/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/jobs/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/jobs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/jobs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/main_app/job_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/main_app/job_confirm_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/templates/main_app/job_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/main_app/job_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/main_app/requirements_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/main_app/requirements_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/main_app/requirements_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/main_app/requirements_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/main_app/requirements_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/main_app/requirements_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/main_app/requirements_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/main_app/requirements_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_change_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_change_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_reset_complete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_reset_confirm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_reset_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_reset_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_reset_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/registration/password_reset_subject.txt" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/password_reset_subject.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_app/templates/registration/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/templates/registration/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/views.py" afterDir="false" />
     </list>
@@ -81,7 +101,7 @@
       <updated>1656321191255</updated>
       <workItem from="1656321194226" duration="17841000" />
       <workItem from="1656406253173" duration="3499000" />
-      <workItem from="1656409802290" duration="5497000" />
+      <workItem from="1656409802290" duration="7469000" />
     </task>
     <servers />
   </component>

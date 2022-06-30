@@ -1,2 +1,85 @@
+
 @import url(//db.onlinewebfonts.com/c/50cd2aad9c8f35800bb6beac3ad42f16?family=Azonix);
 @font-face {font-family: "Azonix"; src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot"); src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff") format("woff"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.svg#Azonix") format("svg"); }
+
+select {
+    display: block !important;
+}
+
+.job-status {
+    padding: 5px; 
+    color: white;
+    text-align: center;
+    width: 150px;
+}
+
+.bg-green {
+    background-color: #8ef28e;
+}
+
+.bg-yellow {
+    background-color: #e3f28e;
+}
+
+.bg-orange {
+    background-color: #f2b88e;
+}
+
+.bg-blue {
+    background-color:cadetblue;
+}
+
+.bg-red {
+    background-color: #f28e8e;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    color: #707070;
+}
+
+nav .brand-logo {
+    color: yellow; 
+    margin-left: 5%; 
+    font-family: 'Oleo Script Swash Caps', cursive; 
+    font-size: 300%
+}
+
+nav ul a {
+    color: yellow;
+}
+
+.nav-wrapper {
+    font-size: 100%;
+}
+
+--fa-inverse {
+    color: yellow;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+
+footer .page-footer {
+    padding-top: 0;
+    text-align: center;
+    color: yellow;
+}
+
+
+a {
+    color: #323232;
+}
+
+.input-field {
+    color: #651fff;
+    font-size: 20px;
+}
+
+.form-heading {
+    color: #651fff;
+}
