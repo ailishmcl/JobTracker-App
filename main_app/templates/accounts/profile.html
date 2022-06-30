@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block content %} 
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}    
+{% for message in messages %}
+    <div class="message">
+        <div class="card blue-grey darken-1">
+            {{ message }}
+            <a href="#" class="del-msg">&times;</a>
+        </div>
+    </div>
+{% endfor %}
 
     <!-- <h1> Profile </h1> -->
 

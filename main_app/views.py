@@ -44,7 +44,7 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    fields = ['status', 'feedback', 'title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
+    fields = ['title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -162,7 +162,9 @@ def profile(request):
             messages.success(request, f'Your profile information has been updated!')
             return redirect('profile')
     else:
-        messages.success(request, f'Welcome Back!')
+        signed_in = request.GET.get('signed_in', "False")
+        if signed_in == "True":
+            messages.success(request, f'Welcome Back!')
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
         context = {

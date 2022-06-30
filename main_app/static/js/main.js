@@ -24,6 +24,15 @@ $(document).ready(function(){
       });
     });
 
+    setTimeout(function() {
+      $('.message').fadeOut('slow');
+    }, 10000); // <-- time in milliseconds, 1000 =  1 sec
+
+    // delete message
+    $('.del-msg').live('click',function(){
+        $('.del-msg').parent().attr('style', 'display:none;');
+    });
+
   });
 
 // Modal Status function for index page
