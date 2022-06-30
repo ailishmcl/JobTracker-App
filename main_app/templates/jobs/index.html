@@ -2,6 +2,14 @@
 
 {% block content%}
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <h1> Wishlist </h1>
 
 {% if jobs|length == 0 %}
@@ -39,7 +47,21 @@
                 <p>Company: {{ job.company }}</p>
                 <p>Contract Type: {{ job.contract_type }}</p>
                 <p>Salary: {{ job.salary }}</p>
-
+                <p>Click below to change status:</p>
+                <div class="center-align center">
+                    <!-- Modal Trigger by color -->
+                    {% if job.status == 'New' %}
+                    <a class="job-status bg-green modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
+                    {% elif job.status == 'Application Sent' %}
+                    <a class="job-status bg-yellow modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
+                    {% elif job.status == 'Interviewing' %}
+                    <a class="job-status bg-orange modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
+                    {% elif job.status == 'Successful' %}
+                    <a class="job-status bg-blue modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
+                    {% elif job.status == 'Unsuccessful' %}
+                    <a class="job-status bg-red modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
+                    {%endif %}
+                </div>
             </div>
             <div class="card-action">
                 

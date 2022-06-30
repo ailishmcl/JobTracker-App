@@ -13,6 +13,7 @@ from django.http import HttpResponse, JsonResponse
 
 
 
+
 from .forms import RequirementsForm, StatusForm
 # Create your views here.
 
@@ -161,6 +162,7 @@ def profile(request):
             messages.success(request, f'Your profile information has been updated!')
             return redirect('profile')
     else:
+        messages.success(request, f'Welcome Back!')
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
         context = {

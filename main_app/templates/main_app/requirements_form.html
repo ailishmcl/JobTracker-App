@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
-
+{% load widget_tweaks %}
 {% block content%}
 
     {% if object %}
     <h1 class="form-heading"> Edit {{ object.type }} </h1>
     {% else %}
-    <h1 class="form-heading"> Add requirement </h1>
+    <h1 class="form-heading"> Add a requirement </h1>
     {% endif %}
 
     <form action="" method="post">
         {% csrf_token %}
-
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit">
+        <div class="row">
+            <div class="form-group input-field col s12">
+                <label for="type" class="formlabel" style="color: black; font-size: 20px">Requirement Type:</label>
+                {% render_field form.type type="text" class="validate" id="type" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group input-field col s12">
+                <label for="description" class="formlabel"  style="color: black; font-size: 20px">Description: <span class="grey-text" style="font-size: 12px"> (optional)</span></label>
+                {% render_field form.description type="textarea" class="materialize-textarea" rows="10" cols="40" id="description" %}
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="btn" style="background: #651fff; color: yellow; font-family: Azonix">
     </form>
 
 
