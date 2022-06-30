@@ -25,8 +25,8 @@ class Requirements(models.Model):
         return reverse('requirements_detail', kwargs = {'pk' : self.id})
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 
