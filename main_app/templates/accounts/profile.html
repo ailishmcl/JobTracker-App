@@ -4,30 +4,75 @@
 
     
 
-    <h1> Profile </h1>
-    <div class="content-section">
-        <div class="media">
+    <!-- <h1> Profile </h1> -->
 
 
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="100px" width="100px">
-            
-
-
-            <div class="media-body">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-0">
+          <div class="row valign-wrapper">
+            <div class="col s10">
                 <h2 class="account-heading"> {{ user.first_name }} {{ user.last_name}} </h2>
-                <p class="text-secondary"> Username: {{ user.username }} </p>
-                <p class="text-secondary"> Email: {{ user.email }} </p>
-                <p class="text-secondary"> CV: <a href="{{ user.profile.cv }}"> {{ user.profile.cv }} </a> </p>
-                <p class="text-secondary"> Cover Letter: <a href="{{ user.profile.coverletter }}">{{ user.profile.coverletter }} </a>  </p>
-                <p class="text-secondary"> Other: {{ user.profile.other }} </p>
             </div>
-            <a href="{% url 'password_change' %}"> Change Password </a>
+            <div class="col s6 m6">
+                <img class="circle account-img" alt="Your Photo" src="{{ user.profile.image.url }}" height="100px"> 
+            </div>
+          </div>
         </div>
+    </div>
+
+    <!-- Table profile data -->
+
+    <table class="highlight table-details">
+        <thead>
+            <tbody>
+                <tr>
+                    <th>Username:</th>
+                    <td>{{ user.username }}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>{{ user.email }}</td>
+                </tr>
+                {% if user.profile.cv == None %}
+                <tr>
+                    <th>CV Link:</th>
+                    <td>Edit your profile to add</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <th>CV Link:</th>
+                    <td><a href="{{ user.profile.cv }}" target="_blank"> See your CV here </a></td>
+                </tr>
+                {% endif %}
+                {% if user.profile.coverletter == None %}
+                <tr>
+                    <th>Cover Letter:</th>
+                    <td>Edit your profile to add</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <th>Cover Letter:</th>
+                    <td><a href="{{ user.profile.coverletter }}" target="_blank"> See your Coverletter here </a></td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th>Other Info:</th>
+                    <td>{{ user.profile.other }}</td>
+                </tr>    
+            </tbody>
+        </thead>
+    
+    </table>
+
+
+
+    <div class="content-section">
     
 <br>
-        
+        <!-- Change password and update profile buttons -->
 
-        <a class="waves-effect waves-light btn modal-trigger deep-purple accent-3" href="#modal1" style="color: yellow; font-family: Azonix">Edit Profile Info</a>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit Profile Info</a>
+        <a class="waves-effect waves-light btn" href="{% url 'password_change' %}">Change Password</a>
 
         <div id="modal1" class="modal">
             <div class="modal-content">

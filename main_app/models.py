@@ -25,8 +25,8 @@ class Requirements(models.Model):
         return reverse('requirements_detail', kwargs = {'pk' : self.id})
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 
@@ -35,8 +35,8 @@ class Job(models.Model):
     company = models.CharField(max_length=100)
     contract_type = models.CharField(max_length=100)
     salary = models.CharField(max_length=100)
-    link = models.CharField(max_length=150)
-    description = models.TextField(max_length=250)
+    link = models.URLField(max_length=2000)
+    description = models.TextField(max_length=2000)
     contact = models.CharField(max_length=150)
     requirements = models.ManyToManyField(Requirements)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

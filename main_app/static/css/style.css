@@ -2,9 +2,13 @@
 @import url(//db.onlinewebfonts.com/c/50cd2aad9c8f35800bb6beac3ad42f16?family=Azonix);
 @font-face {font-family: "Azonix"; src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot"); src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff") format("woff"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.svg#Azonix") format("svg"); }
 
-
 h1 {
     font-family: Azonix;
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+  
 }
 select {
     display: block !important;
@@ -84,9 +88,6 @@ a {
     font-size: 20px;
 }
 
-.form-heading {
-    color: #651fff;
-}
 
 .modal-trigger {
     width: 250px;
@@ -99,4 +100,44 @@ a {
 
 table.table-details > tbody > tr > th {
     width: 30%;
+}
+
+.btn, .btn-large, .btn-small {
+    font-family: "Azonix", sans-serif;
+    color: yellow;
+    background-color: #651fff;
+}
+:hover.btn, .btn-large, .btn-small {
+    font-family: "Azonix", cursive;
+    color: white;
+    background-color: #651fff;
+}
+
+button {
+    font-family: "Azonix", sans-serif;
+    color: yellow;
+    background-color: #651fff;
+    border: none;
+    border-radius: 2px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .5px;
+}
+
+
+.account-heading {
+    text-align: right;
+}
+
+/* label color */
+.input-field label {
+    color: #651fff;
+}
+
+.form-group .input-field input[type=text]:focus {
+    border-bottom: 1px solid #651fff;
+    box-shadow: 0 1px 0 0 #651fff;
 }
