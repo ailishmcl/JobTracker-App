@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <h1 class="form-heading"> Delete Requirement </h1>
+    <h4> Are you sure you want to delete {{ object.type }}?</h4> 
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, delete">
+        <a href="{% url 'requirements_detail' object.id %}"> Cancel </a>
+    </form>
+
+{% endblock %}

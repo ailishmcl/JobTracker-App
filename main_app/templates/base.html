@@ -1,0 +1,83 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/50cd2aad9c8f35800bb6beac3ad42f16?family=Azonix" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0b67725e2d.js" crossorigin="anonymous"></script>
+</head>
+<header>
+       <nav class="navbar-fixed deep-purple accent-3">
+            <div class="nav-wrapper deep-purple accent-3">
+                <ul>
+                    <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; Job Tracker </a></li>
+                </ul>
+
+            
+
+                <b> <ul class="right">            
+                    
+
+                    {% if user.is_authenticated %}
+                    
+                    <li> <a href="">Hi {{ user.first_name }},</a></li>
+                    <li> <a href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> </a></li>
+                    <li> <a href="{% url 'jobs_create' %}"> Add A Job </a></li>
+                    <li> <a href="{% url 'index' %}"> View All Jobs </a></li>
+                    <li> <a href="{% url 'requirements_create' %}"> Add Requirement </a></li>             
+                    <li> <a href="{% url 'logout' %}"> Log Out </a></li>
+
+                    {% else %}
+                    <li> <a href="{% url 'about' %}"> About </a></li>
+                    <li> <a href="{% url 'signup' %}"> Sign Up </a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                       
+                </ul>
+                    {% endif %}
+
+                    
+
+                
+            </div>
+        </nav>
+</header>
+</b>
+<body>
+    
+
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+
+
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn deep-purple accent-3" id="dark-mode">
+          <i class="large material-icons">brightness_medium</i>
+        </a>
+      </div>
+    
+
+    <footer>
+        <div class="page-footer deep-purple accent-3 center">
+            All Rights Reserved &copy; Job Tracker &nbsp;
+        </div>
+    </footer>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

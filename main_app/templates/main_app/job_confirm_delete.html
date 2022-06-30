@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1 class="form-heading"> Delete Job </h1>
+
+<h4> Are you sure you want to delete 
+    <span class=""> {{ job.title }} </span>? </h4>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <input type="submit" value="Delete" class="">
+        <a href="{% url 'detail' job.id %}">Cancel</a>
+    </form>
+
+
+{% endblock %}

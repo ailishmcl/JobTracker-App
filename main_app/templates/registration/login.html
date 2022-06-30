@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 style="color: white"> Log In </h1>
+
+    {% if form.errors %}
+    <p> Your username and password didn't match. Please try again.</p> 
+    
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Log In" class="btn" style="background: #651fff; color: yellow; font-family: Azonix">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+    <a href="{% url 'password_reset' %}"> Forgot password? </a>
+
+{% endblock %}
