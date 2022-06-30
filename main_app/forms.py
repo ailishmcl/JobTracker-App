@@ -37,6 +37,6 @@ class StatusForm(ModelForm):
     
     class Meta:
         model = Job
-        fields = ['status', 'feedback', 'title', 'company', 'contract_type', 'salary', 'link', 'description', 'contact']
+        fields = ['status', 'feedback']
         
 

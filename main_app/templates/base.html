@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Tracker App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" type="image/x-icon" href="static/img/favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -24,10 +24,11 @@
                     <li> <a href="{% url 'home' %}" class="left brand-logo"> &nbsp; Job Tracker </a></li>
                 </ul>
 
-                <b> <ul class="right">
+            
+
+                <b> <ul class="right">            
                     
-                    
-                    
+
                     {% if user.is_authenticated %}
                     
                     <li> <a href="">Hi {{ user.first_name }},</a></li>
@@ -41,8 +42,13 @@
                     <li> <a href="{% url 'about' %}"> About </a></li>
                     <li> <a href="{% url 'signup' %}"> Sign Up </a></li>
                     <li><a href="{% url 'login' %}">Log In</a></li>
+                       
                 </ul>
                     {% endif %}
+
+                    
+
+                
             </div>
         </nav>
 </header>
@@ -60,7 +66,11 @@
 
 
 
-
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn deep-purple accent-3" id="dark-mode">
+          <i class="large material-icons">brightness_medium</i>
+        </a>
+      </div>
     
 
     <footer>

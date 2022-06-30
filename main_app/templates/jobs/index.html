@@ -20,17 +20,17 @@
             <div class="card-content">
 
                 <div class="center-align center">
-                    
+                    <!-- Modal Trigger by color -->
                     {% if job.status == 'New' %}
-                    <h6 class="job-status bg-green">{{ job.status }}</h6>
+                    <a class="job-status bg-green modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
                     {% elif job.status == 'Application Sent' %}
-                    <h6 class="job-status bg-yellow">{{ job.status }}</h6>
+                    <a class="job-status bg-yellow modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
                     {% elif job.status == 'Interviewing' %}
-                    <h6 class="job-status bg-orange">{{ job.status }}</h6>
+                    <a class="job-status bg-orange modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
                     {% elif job.status == 'Successful' %}
-                    <h6 class="job-status bg-blue">{{ job.status }}</h6>
+                    <a class="job-status bg-blue modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
                     {% elif job.status == 'Unsuccessful' %}
-                    <h6 class="job-status bg-red">{{ job.status }}</h6>
+                    <a class="job-status bg-red modal-trigger" onclick="findMyStatus({{job.id}})" href="#modal-status">{{ job.status }}</a>
                     {%endif %}
                 </div>
 
@@ -42,6 +42,7 @@
 
             </div>
             <div class="card-action">
+                
                 <a href="{% url 'detail' job.id %}" class="waves-effect waves-light deep-purple accent-3 btn right">See details</a>&nbsp;
             </div>
         </div>
@@ -53,7 +54,32 @@
 
 {% endfor %}
 
+<!-- Modal Structure -->
+<div id="modal-status" class="modal">
+    <div class="modal-content">
+
+        <form action="" method="post" id="status-form">
+
+            {% csrf_token %}
+    
+            <table class="input-field col s12" id="edit-status-form">
+            </table>
+
+            <input type="submit" value="submit" class="btn deep-purple accent-3">
+        </form>
+        <div id="change-status-response"></div>
+
+    </div>
+
+
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+<!-- End Modal -->
+
 </div>
 </div>
 
 {% endblock %}
+

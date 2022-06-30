@@ -2,6 +2,14 @@
 @import url(//db.onlinewebfonts.com/c/50cd2aad9c8f35800bb6beac3ad42f16?family=Azonix);
 @font-face {font-family: "Azonix"; src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot"); src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff") format("woff"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.svg#Azonix") format("svg"); }
 
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #651fff;
+    font-family: 'Azonix';
+}
 select {
     display: block !important;
 }
@@ -37,7 +45,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    color: #707070;
+    /* color: #707070; */
 }
 
 nav .brand-logo {
@@ -72,7 +80,7 @@ footer .page-footer {
 
 
 a {
-    color: #323232;
+    color: #651fff;
 }
 
 .input-field {
@@ -80,6 +88,26 @@ a {
     font-size: 20px;
 }
 
-.form-heading {
+
+.modal-trigger {
+    width: 250px;
+}
+
+.dark-mode {
+    background-color: rgb(144, 144, 144);
+    /* color: rgb(31, 31, 31);  */
+}
+
+table.table-details > tbody > tr > th {
+    width: 30%;
+}
+
+/* label color */
+.input-field label {
     color: #651fff;
+}
+
+.form-group .input-field input[type=text]:focus {
+    border-bottom: 1px solid #651fff;
+    box-shadow: 0 1px 0 0 #651fff;
 }

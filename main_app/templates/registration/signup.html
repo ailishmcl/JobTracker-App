@@ -13,30 +13,38 @@
 
         <div class="row">
             <div class="form-group input-field col s6">
-                {% render_field form.first_name type="text" class="form-control" placeholder="First Name" %}
+                <label for="username" class="formlabel" style="color: black; font-size: 20px">Username:</label>
+                {% render_field form.username type="text" class="validate" id="username" %}
             </div>
             <div class="form-group input-field col s6">
-                {% render_field form.last_name type="text" class="form-control" label="Last Name" %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group input-field col s6">
-                {% render_field form.username type="text" class="form-control" placeholder="Username" %}
-            </div>
-            <div class="form-group input-field col s6">
-                {% render_field form.email type="email" class="form-control" placeholder="Email" %}
+                <label for="email" class="formlabel" style="color: black; font-size: 20px">Email:</label>
+                {% render_field form.email type="email" class="validate" id="email" %}
             </div>
         </div>
+        
         <div class="row">
             <div class="form-group input-field col s6">
-                {% render_field form.password1 type="password" class="form-control" placeholder="password" %}
+                <label for="first_name" class="formlabel" style="color: black; font-size: 20px">First Name:</label>
+                {% render_field form.first_name type="text" class="validate" id="first_name" %}
             </div>
             <div class="form-group input-field col s6">
-                {% render_field form.password2 type="password" class="form-control" placeholder="password" %}
+                <label for="last_name" class="formlabel" style="color: black; font-size: 20px">Last Name:</label>
+                {% render_field form.last_name type="text" class="validate" id="last_name" %}
             </div>
         </div>
 
-        <input type="submit" value="Sign Up" class="btn" style="background: #7636FA; color: yellow; font-family: Azonix">
+        <div class="row">
+            <div class="form-group input-field col s6">
+                <label for="password1" class="formlabel" style="color: black; font-size: 20px">Password:</label>
+                {% render_field form.password1 type="password" class="validate" id="password1" %}
+            </div>
+            <div class="form-group input-field col s6">
+                <label for="password2" class="formlabel" style="color: black; font-size: 20px">Repeat Password:</label>
+                {% render_field form.password2 type="password" class="validate" id="password2" %}
+            </div>
+        </div>
+
+        <input type="submit" value="Sign Up" class="btn" style="background: #651fff; color: yellow; font-family: Azonix">
     </form>
 
 {% endblock %}
