@@ -2,9 +2,9 @@
 
 {% block content%}
 
-    
+    <div>
 
-<h1 class="form-heading"> Your Job Requirements </h1>
+        <h1 class="form-heading"> Your Job Requirements </h1>
 
                 
             <div class="row">
@@ -19,8 +19,9 @@
                         </a>
                     </div>
                 </div>
-                {% endfor %}
+                {% endfor %}                
             </div>
-
+            <input type=button value="Go Back" onClick="javascript:history.go(-1);" class="btn" style="background: #651fff; color: yellow; font-family: Azonix">
+    </div>
 
 {% endblock %}

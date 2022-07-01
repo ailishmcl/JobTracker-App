@@ -25,8 +25,8 @@
     <div class="">
 
         <div class="right">
-            <a href="{% url 'jobs_update' job.id %}">Edit </a>&nbsp;|
-            <a href="{% url 'jobs_delete' job.id %}">Delete</a>
+            <a href="{% url 'jobs_update' job.id %}" style="font-family: Azonix;">Edit </a>&nbsp;|
+            <a href="{% url 'jobs_delete' job.id %}" style="font-family: Azonix;">Delete</a>
         </div>
 
         <h3 class="">{{ job.title }}</h3>
@@ -127,8 +127,8 @@
                 {% else %}
                     <h5> {{ job.title }} is up to date <i class="small material-icons">check_box</i></h5>
                 {% endif %}
-                <p><a href="{% url 'requirements_create' %}"> Add new Requirement </a>&nbsp;|&nbsp;
-                <a href="{% url 'requirements_index' %}"> View All Requirements </a></p>
+                <p><a href="{% url 'requirements_create' %}" style="font-family: Azonix;"> Add new requirement </a>&nbsp;|&nbsp;
+                <a href="{% url 'requirements_index' %}" style="font-family: Azonix;"> View all requirements </a></p>
         </div>
 
     </div>
