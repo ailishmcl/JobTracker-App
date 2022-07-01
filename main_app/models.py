@@ -15,7 +15,7 @@ STATUS_CHOICES = [
 
 class Requirements(models.Model):
     type = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(max_length=250, blank=True, default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
