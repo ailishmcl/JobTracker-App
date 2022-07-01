@@ -45,12 +45,13 @@ See the working app [here](https://jobtrackersei64.herokuapp.com/)
 ### Features:
 * Authentication and authorization;
 * Display messages for signup, signin and update profile;
-* Add, edit and delete a Job;
-* Choose a status for the job direct on the index page;
-* View all Jobs;
-* View, Add, edit and delete requirements for the jobs;
-* M/M: Many jobs can have many requirements;
-* Update user profile;
+* Add, edit and delete a job;
+* Add, edit and delete a requirement
+* Choose a status for the job directly on the index page;
+* View all jobs on one page;
+* Add or remove a requirement for a job directly on the job detail page;
+* M/M: many jobs can have many requirements;
+* User can view their profile information and update user profile as a pop up on the profile page;
 * User can add a photo, CV link, cover letter link on their profile;
 * User can also change their password while logged in;
 * Dark mode option using local storage.
@@ -65,10 +66,13 @@ See the working app [here](https://jobtrackersei64.herokuapp.com/)
 ***
 
 ### Future enhancements:
-- [ ] Use API to upload a job automatically
+- [ ] Use API to upload a job automatically 
+- [ ] Use webscraping to find and pull jobs from job sites
 - [ ] Add password reset by email
-- [ ] Remove Unsuccessful jobs from index page
+- [ ] Remove unsuccessful jobs from index page 
 - [ ] Unsuccessful job status goes to a different page
+- [ ] View all feedback from unsuccessful jobs in one place
+- [ ] Change the colour of the emphasis line when filling out forms (using SASS)
 - [ ] More styling
 
 ***
