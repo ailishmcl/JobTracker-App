@@ -3,7 +3,7 @@
 @font-face {font-family: "Azonix"; src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot"); src: url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.woff") format("woff"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/50cd2aad9c8f35800bb6beac3ad42f16.svg#Azonix") format("svg"); }
 
 h1, h2 {
-    font-family: Azonix;
+    font-family: 'Azonix';
 }
 
 body {
@@ -19,23 +19,23 @@ select {
     padding: 5px; 
     color: white;
     text-align: center;
-    width: 150px;
+    width: 50%;
 }
 
 .bg-green {
-    background-color: #8ef28e;
+    background-color: #00e676;
 }
 
 .bg-yellow {
-    background-color: #e3f28e;
+    background-color: #f9a825;
 }
 
 .bg-orange {
-    background-color: #f2b88e;
+    background-color: #e65100;
 }
 
 .bg-blue {
-    background-color:cadetblue;
+    background-color:#039be5;
 }
 
 .bg-red {
@@ -140,4 +140,20 @@ button {
 .form-group .input-field input[type=text]:focus {
     border-bottom: 1px solid #651fff;
     box-shadow: 0 1px 0 0 #651fff;
+}
+
+.message {
+    background:#f2eb8e;
+    font-size: 2em; 
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    padding: 1em 0.5em 1em 0.5em;
+} 
+
+.modal-labels {
+    width: 100%;
+}
+
+a.job-status.modal-trigger {
+    position: absolute;
 }

@@ -6,20 +6,21 @@
 
 <h1 class="form-heading"> Your Job Requirements </h1>
 
-            
-            {% for requirement in requirements_list %}
                 
-                <a href="{% url 'requirements_detail' requirement.id %}"> 
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-title"> {{ requirement.type }} </div>
-                            <div style="font-size: 20px"> Description: {{ requirement.description }} </div>
-                        </div>
+            <div class="row">
+                {% for requirement in requirements_list %}
+                <div class="col s12 m6 l4">
+                    <div class="card-panel deep-purple accent-3">
+
+                        <a href="{% url 'requirements_detail' requirement.id %}"> 
+                    
+                            <div class="card-title" style="font-size: 20px; color: white; text-align: center"> {{ requirement.type }} </div>
+                                  
+                        </a>
                     </div>
-                </a>
-    
+                </div>
+                {% endfor %}
+            </div>
 
-
-    {% endfor %}
 
 {% endblock %}

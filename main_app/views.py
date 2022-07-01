@@ -13,6 +13,7 @@ from django.http import HttpResponse, JsonResponse
 
 
 
+
 from .forms import RequirementsForm, StatusForm
 # Create your views here.
 
@@ -27,8 +28,7 @@ def about(request):
 
 # Job URL
 def jobs_index(request):
-    jobs = Job.objects.filter(user = request.user)
-    # Filter will go here
+    jobs = Job.objects.filter(user = request.user).order_by('id')
     return render(request, 'jobs/index.html', {'jobs': jobs})
 
 
@@ -161,6 +161,9 @@ def profile(request):
             messages.success(request, f'Your profile information has been updated!')
             return redirect('profile')
     else:
+        signed_in = request.GET.get('signed_in', "False")
+        if signed_in == "True":
+            messages.success(request, f'Welcome Back!')
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
         context = {

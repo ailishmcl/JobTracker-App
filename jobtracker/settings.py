@@ -132,6 +132,7 @@ MEDIA_URL = '/img/'
 # )
 
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/profile/?signed_in=True'
 
 
 # email configs
