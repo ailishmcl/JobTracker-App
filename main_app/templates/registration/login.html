@@ -16,7 +16,7 @@
     
     {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'login' %}" >
         {% csrf_token %}
 
         <div class="form-group input-field col s6">
@@ -25,12 +25,12 @@
         </div>
         <div class="form-group input-field col s6">
             <label for="password" class="formlabel" style="color: black; font-size: 20px">Password:</label>
-            {% render_field form.password type="password" class="validate" id="password" %}
+            {% render_field form.password type="password" class="validate" id="password" autocomplete="off" %}
         </div>
 
         <input type="submit" value="Log In" class="btn" style="background: #651fff; color: yellow; font-family: Azonix">
         <input type="hidden" name="next" value="{{ next }}">
     </form>
-    <a href="{% url 'password_reset' %}"> Forgot password? </a>
+    <a href="{% url 'password_reset' %}" style="font-family: Azonix;"> Forgot password? </a>
 
 {% endblock %}
